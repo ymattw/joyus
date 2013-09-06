@@ -11,7 +11,7 @@ tags: [vps]
 ，就按先后顺序说一下好了。
 
 6 月 20 号我在 vpsempire 购买了 VPS-01，搭起来之后才发现
-[丢包严重](http://joyus.org/blog/2008/06/vpsempire.html)，当然我的家用网络并没
+[丢包严重](http://joyus.org/2008/06/vpsempire.html)，当然我的家用网络并没
 有什么问题，上其他网站都好好的。
 
 于是发 ticket 反映情况，幻想他们能解决。等了两天没见回复，通过 online chat，他们答复这个是我自己的问题，没有其他客户反映同样问题。

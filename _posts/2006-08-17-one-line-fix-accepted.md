@@ -8,7 +8,7 @@ tags: [opensource]
 
 昨天没去参加 Novell 在海洋馆举行的 SUSE Linux 宣传活动，据说是大名鼎鼎的 suzhe
 讲的，有点后悔。打开信箱发现了一个安慰：前段时间为 ubuntu gdm 做的一个
-[bugfix](http://joyus.org/blog/2006/08/contribute-to-ubuntu/)，今天进到 gdm
+[bugfix](http://joyus.org/2006/08/contribute-to-ubuntu.html)，今天进到 gdm
 2.15.9 了。虽然只是一个 one line fix，但是查到根源还不是那么容易滴～，要不这么
 容易重现的 bug怎么晾在那两个月之久都没人解决呢。嘿嘿，虚荣一下。
 

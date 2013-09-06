@@ -33,7 +33,7 @@ use output text for return code check instead.  Note there's a similar
 but it's not the identical issue.</p>
 
 Pdksh (public domain ksh) doesn't have the problem. (See
-[another bug](/blog/2009/03/ksh93-bug.html))
+[another bug](/2009/03/ksh93-bug.html))
 
 **Update:** this issue doesn't happen on Ubuntu ksh version "sh (AT&amp;T
 Research) 93s+ 2008-01-31".
