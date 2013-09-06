@@ -2,7 +2,7 @@
 layout: post
 title: 又一个 ksh 的 bug
 category: tech
-tags: []
+tags: [ksh]
 ---
 {% include JB/setup %}
 

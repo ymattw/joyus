@@ -2,7 +2,7 @@
 layout: post
 title: 关于 bash PS1
 category: tech
-tags: []
+tags: [bash]
 ---
 {% include JB/setup %}
 

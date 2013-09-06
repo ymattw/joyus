@@ -2,7 +2,7 @@
 layout: post
 title: Git 的后悔药
 category: tech
-tags: []
+tags: [git]
 ---
 {% include JB/setup %}
 

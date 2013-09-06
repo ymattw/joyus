@@ -2,7 +2,7 @@
 layout: post
 title: 玩玩开源
 category: tech
-tags: []
+tags: [opensource]
 ---
 {% include JB/setup %}
 

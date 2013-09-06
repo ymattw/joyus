@@ -2,7 +2,7 @@
 layout: post
 title: 不易觉察的类型提升
 category: tech
-tags: []
+tags: [C]
 ---
 {% include JB/setup %}
 

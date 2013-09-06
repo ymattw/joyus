@@ -2,7 +2,7 @@
 layout: post
 title: Tip - RunAs with Explorer
 category: tech
-tags: []
+tags: [windows, runas]
 ---
 {% include JB/setup %}
 

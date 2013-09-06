@@ -2,7 +2,7 @@
 layout: post
 title: Solaris nfs exporting
 category: tech
-tags: []
+tags: [solaris, nfs]
 ---
 {% include JB/setup %}
 

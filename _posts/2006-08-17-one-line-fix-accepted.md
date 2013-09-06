@@ -2,7 +2,7 @@
 layout: post
 title: One line fix accepted
 category: tech
-tags: []
+tags: [opensource]
 ---
 {% include JB/setup %}
 

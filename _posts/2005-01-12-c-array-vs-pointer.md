@@ -2,7 +2,7 @@
 layout: post
 title: C 中一个经典错误·数组与指针的区别
 category: tech
-tags: []
+tags: [C]
 ---
 {% include JB/setup %}
 

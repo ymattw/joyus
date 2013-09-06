@@ -2,7 +2,7 @@
 layout: post
 title: Some optimizing tips
 category: tech
-tags: []
+tags: [C]
 ---
 {% include JB/setup %}
 

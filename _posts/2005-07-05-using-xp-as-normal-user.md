@@ -2,7 +2,7 @@
 layout: post
 title: 用普通用户身份使用XP
 category: tech
-tags: []
+tags: [windows, runas]
 ---
 {% include JB/setup %}
 

@@ -2,7 +2,7 @@
 layout: post
 title: 在只允许 proxy http 外出的环境中使用 ssh/telnet
 category: tech
-tags: []
+tags: [ssh, proxy]
 ---
 {% include JB/setup %}
 

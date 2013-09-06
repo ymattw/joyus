@@ -2,7 +2,7 @@
 layout: post
 title: 关于静态库的连接顺序
 category: tech
-tags: []
+tags: [gcc]
 ---
 {% include JB/setup %}
 
