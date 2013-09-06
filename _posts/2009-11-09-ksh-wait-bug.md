@@ -28,8 +28,8 @@ everything works fine.  The problem happens only when
 3. An **external** command is executed in the subshell
 
 I googled for a while, there's no ksh bug report so far, workaround could be
-use output text for return code check instead.  Note there's a similar 
-[report for ksh on solaris](http://bugs.opensolaris.org/view_bug.do;jsessionid=8fdaa6bf6882fac8e944c8288f?bug_id=4452579) 
+use output text for return code check instead.  Note there's a similar
+[report for ksh on solaris](http://bugs.opensolaris.org/view_bug.do;jsessionid=8fdaa6bf6882fac8e944c8288f?bug_id=4452579)
 but it's not the identical issue.</p>
 
 Pdksh (public domain ksh) doesn't have the problem. (See

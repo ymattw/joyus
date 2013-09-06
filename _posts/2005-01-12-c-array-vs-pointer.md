@@ -6,38 +6,35 @@ tags: []
 ---
 {% include JB/setup %}
 
-<pre>
-/* extn.c */
-char s[] = "Hello world.";
-</pre>
+extn.c
 
-<pre>
-/* main.c */
-extern char *s;   /* XXX */
+    char s[] = "Hello world.";
 
-int main()
-{
-    s[0] = 'A';
-    return 0;
-}
-</pre>
+main.c
 
-<pre>
-$ gcc -c main.c extn.c
-$ gcc -o main main.o extn.o
-$ ./main
-Segmentation fault (core dumped)
-</pre>
+    extern char *s;   /* XXX */
 
-这是 C 中容易犯的一个经典错误。正确的应该是在 main.c 中声明 s 为 extern char s[];
+    int main()
+    {
+        s[0] = 'A';
+        return 0;
+    }
+
+Now run the program get core dumped.
+
+    $ gcc -c main.c extn.c
+    $ gcc -o main main.o extn.o
+    $ ./main
+    Segmentation fault (core dumped)
+
+这是 C 中容易犯的一个经典错误。正确的应该是在 main.c 中声明 s 为
+`extern char s[];`
 
 把修改前后的 main.c 分别 gcc -S 编译成汇编，一比较就清楚了：
 
-<pre>
-$ diff main.s.old main.s
-12,13c12
-&lt;       movb    $65, s
-</pre>
+    $ diff main.s.old main.s
+    12,13c12
+    <       movb    $65, s
 
 可见：错误版本中 s 声明为指针后，执行时先要取到 s 这个符号本身的地址，从该地
 址处取出 s 代表的地址放到 eax 中，然后往这个地址存 'A'，但是，s 在 extn.o 中作

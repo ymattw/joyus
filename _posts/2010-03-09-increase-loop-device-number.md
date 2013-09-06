@@ -17,7 +17,7 @@ mount，要么提高这个上限，方法是（以提高上限到 32 为例）
 然后 umount 所有的 loop 设备（用 mount 命令查看），再卸载 loop 模块
 
     rmmod loop
-    
+
 如果发现所有 loop 设备都 umount 了 rmmod 还是报 ERROR: Module loop is in
 use，使用 losetup
 

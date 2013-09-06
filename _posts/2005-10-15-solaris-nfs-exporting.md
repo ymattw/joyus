@@ -8,23 +8,18 @@ tags: []
 
 1. Prepare dir for sharing, (assume "ws" for group member, "tmp" for everyone):
 
+    cd /export/home
+    mkdir ws tmp
+    chown matt:staff ws
+    chown root:root tmp
+    chmod 750 ws
+    chmod 1777 tmp
 
-<pre>
-cd /export/home
-mkdir ws tmp
-chown matt:staff ws
-chown root:root tmp
-chmod 750 ws
-chmod 777 tmp
-chmod +t tmp
-</pre>
+2. Edit /etc/dfs/dfstab, append:
 
-2. edit /etc/dfs/dfstab, append:
+    share -F nfs -o rw -d "workspace" /export/home/ws
+    share -F nfs -o rw -d "tmp" /export/home/tmp
 
-
-<pre>
-share -F nfs -o rw -d "workspace" /export/home/ws
-share -F nfs -o rw -d "tmp" /export/home/tmp
-</pre>
-
-3. use command <i>shareall</i> and <i>unshareall</i> to share/unshare all resources mentioned in /etc/dfs/dfstab, use command <i>share </i>to show current sharing resources
+3. Use command `shareall` and `unshareall` to share/unshare all resources
+   mentioned in /etc/dfs/dfstab, use command `share` to show current sharing
+   resources

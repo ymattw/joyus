@@ -23,7 +23,7 @@ tags: []
 叫 smth，在里面指定字体和终端颜色等，--geometry 参数可以设置窗口大小：
 
     #!/bin/sh
-    gnome-terminal --window-with-profile=smth --command sshsmth &#92;
-            --geometry=80x50 &amp;
+    gnome-terminal --window-with-profile=smth --command sshsmth \
+            --geometry=80x50 &
 
 Perfect!

@@ -6,119 +6,81 @@ tags: []
 ---
 {% include JB/setup %}
 
-<p>
 总是想不起来，这次自己整理一下。
-</p>
 
-<pre>
-<font color="#0000ff">/*</font><font color="#0000ff"> hello.c </font><font color="#0000ff">*/</font>
-<font color="#a020f0">#include </font><font color="#ff00ff">&lt;stdio.h&gt;</font>
+hello.c
 
-<font color="#2e8b57"><strong>extern</strong></font> <font color="#2e8b57"><strong>void</strong></font> hello()
-{
-    printf(<font color="#ff00ff">"hello world.</font><font color="#6a5acd">\n</font><font color="#ff00ff">"</font>);
-}
-</pre>
+    #include <stdio.h>
 
-<pre>
-<font color="#0000ff">/*</font><font color="#0000ff"> tool.c </font><font color="#0000ff">*/</font>
-<font color="#a020f0">#include </font><font color="#ff00ff">&lt;stdio.h&gt;</font>
+    extern void hello()
+    {
+        printf("hello world.\n");
+    }
 
-<font color="#2e8b57"><strong>extern</strong></font> <font color="#2e8b57"><strong>void</strong></font> tool()
-{
-    printf(<font color="#ff00ff">"i am tool().</font><font color="#6a5acd">\n</font><font color="#ff00ff">"</font>);
-}
-</pre>
+tool.c
 
-<p>
+    #include <stdio.h>
+
+    extern void tool()
+    {
+        printf("i am tool().\n");
+    }
+
 还需要一个头文件声明导出的函数：
-</p>
 
-<pre>
-<font color="#0000ff">/*</font><font color="#0000ff"> test.h </font><font color="#0000ff">*/</font>
-<font color="#2e8b57"><strong>extern</strong></font> <font color="#2e8b57"><strong>void</strong></font> hello();
-<font color="#2e8b57"><strong>extern</strong></font> <font color="#2e8b57"><strong>void</strong></font> tool();
-</pre>
+test.h
 
-<p>
-o 生成静态库的方法
-</p>
+    extern void hello();
+    extern void tool();
 
-<pre>
-$ gcc -c hello.c
-$ gcc -c tool.c
-$ ar rc libtest.a hello.o tool.o
-(ranlib libtest.a 可生成索引)
-</pre>
+### 生成静态库的方法
 
-<p>
-用 nm libtest.a 来看里面的目标文件和导出函数（带 T 标记）。
-</p>
+    $ gcc -c hello.c
+    $ gcc -c tool.c
+    $ ar rc libtest.a hello.o tool.o
 
-<p>
-o 生成动态库的方法
-</p>
+用 ranlib libtest.a 可生成索引, 用 nm libtest.a
+来看里面的目标文件和导出函数（带 T 标记）。
 
-<pre>
-$ gcc -c hello.c
-$ gcc -c tool.c
-$ gcc -o libtest.so -shared -fPIC hello.o tool.o
-</pre>
+### 生成动态库的方法
 
-<p>
--fPIC：表示编译为位置独立的代码，不用此选项的话编译后的代码是位置相关的所以动态载入时是通过代码拷贝的方式来满足不同进程需要，而不能达到真正代码段共享的目的。可用 nm libtest.so 来看里面导出的函数（带 T 标记）。
-</p>
+    $ gcc -c hello.c
+    $ gcc -c tool.c
+    $ gcc -o libtest.so -shared -fPIC hello.o tool.o
 
-<p>
+`-fPIC` 表示编译为位置独立的代码，不用此选项的话编译后的代码是位置相关的所以动
+态载入时是通过代码拷贝的方式来满足不同进程需要，而不能达到真正代码段共享的目的
+。可用nm libtest.so 来看里面导出的函数（带 T 标记）。
+
 用动态库的好处是：更新了动态库之后链结它的程序不用重新编译。
-</p>
 
-<p>
-o 用法
-</p>
+### 用法
 
-<p>
- 假设有个 main() 在 main.c 中：
-</p>
+假设有个 main() 在 main.c 中：
 
-<pre>
-<font color="#0000ff">/*</font><font color="#0000ff"> main.c </font><font color="#0000ff">*/</font>
-<font color="#a020f0">#include </font><font color="#ff00ff">"test.h"</font>
+    /* main.c */
+    #include "test.h"
 
-<font color="#2e8b57"><strong>int</strong></font> main()
-{
-    hello();
-    tool();
-    <font color="#804040"><strong>return</strong></font> <font color="#ff00ff">0</font>;
-}
-</pre>
+    int main()
+    {
+        hello();
+        tool();
+        return 0;
+    }
 
-<p>
-&gt; 静态库:
-</p>
+静态库:
 
-<pre>
-$ gcc -c main.o
-$ gcc -o main main.o libtest.a
-$ ./main
-</pre>
+    $ gcc -c main.o
+    $ gcc -o main main.o libtest.a
+    $ ./main
 
-<p>
-&gt; 动态库：
-</p>
+动态库：
 
-<pre>
-$ gcc -o main main.o -L. -ltest
-$ LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH ./main
-$ LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH ldd main
-</pre>
+    $ gcc -o main main.o -L. -ltest
+    $ LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH ./main
+    $ LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH ldd main
 
-<p>
-可以看到 main 程序所链结的动态库。把 libtest.so 放到 /etc/ld.so.conf
-中列出的目录下就可以不用先指定环境变量，注意先 ldconfig 刷新系统动态库的缓存
-</p>
+可以看到 main 程序所链结的动态库。把 libtest.so 放到 /etc/ld.so.conf 中列出的目
+录下就可以不用先指定环境变量，注意先 ldconfig 刷新系统动态库的缓存
 
-<p>
-<font color="#804040"><strong>TODO</strong></font>: 还有一种 ld -rpath dir
-这样的方法可避免设定环境变量
-</p>
+TODO: 还有一种 ld -rpath dir 这样的方法可避免设定环境变量
