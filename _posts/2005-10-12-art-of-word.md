@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Word 排版要略
-category:
+category: misc
 tags: []
 ---
 {% include JB/setup %}

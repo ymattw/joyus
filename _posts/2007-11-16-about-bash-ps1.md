@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 关于 bash PS1
-category:
+category: tech
 tags: []
 ---
 {% include JB/setup %}

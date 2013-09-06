@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 给 vimpress 增加 slug 支持，以及一点改进
-category:
+category: tech
 tags: []
 ---
 {% include JB/setup %}

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: gnome-screensaver replacement
-category:
+category: tech
 tags: []
 ---
 {% include JB/setup %}

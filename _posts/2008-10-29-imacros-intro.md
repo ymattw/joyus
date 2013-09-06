@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 用 iMacros 成功约到周末练车
-category:
+category: tech
 tags: []
 ---
 {% include JB/setup %}

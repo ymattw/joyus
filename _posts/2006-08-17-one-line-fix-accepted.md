@@ -1,7 +1,7 @@
 ---
 layout: post
 title: One line fix accepted
-category:
+category: tech
 tags: []
 ---
 {% include JB/setup %}

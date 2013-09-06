@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 用 Expect 防发呆原来这么简单
-category:
+category: tech
 tags: []
 ---
 {% include JB/setup %}

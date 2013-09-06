@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Ubuntu 11.04 上搭建 pptp vpn
-category:
+category: tech
 tags: []
 ---
 {% include JB/setup %}

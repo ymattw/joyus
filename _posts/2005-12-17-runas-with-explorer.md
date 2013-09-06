@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Tip - RunAs with Explorer
-category:
+category: tech
 tags: []
 ---
 {% include JB/setup %}

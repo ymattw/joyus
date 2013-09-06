@@ -1,7 +1,7 @@
 ---
 layout: post
 title: gcc 生成静态库和动态库的方法
-category:
+category: tech
 tags: []
 ---
 {% include JB/setup %}

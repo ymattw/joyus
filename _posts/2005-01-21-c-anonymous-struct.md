@@ -1,7 +1,7 @@
 ---
 layout: post
 title: C anonymous struct
-category:
+category: tech
 tags: []
 ---
 {% include JB/setup %}

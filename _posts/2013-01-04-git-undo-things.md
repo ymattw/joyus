@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Git 的后悔药
-category:
+category: tech
 tags: []
 ---
 {% include JB/setup %}

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 玩玩开源
-category:
+category: tech
 tags: []
 ---
 {% include JB/setup %}

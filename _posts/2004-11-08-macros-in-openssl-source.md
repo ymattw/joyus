@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Macros in openssl source code
-category:
+category: tech
 tags: []
 ---
 {% include JB/setup %}

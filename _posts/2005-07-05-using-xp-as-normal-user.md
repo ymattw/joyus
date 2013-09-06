@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 用普通用户身份使用XP
-category:
+category: tech
 tags: []
 ---
 {% include JB/setup %}

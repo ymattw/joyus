@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Ubuntu 上自动 mount NIS 用户的主目录
-category:
+category: tech
 tags: []
 ---
 {% include JB/setup %}

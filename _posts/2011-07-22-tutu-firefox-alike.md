@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 儿子“第一面”
-category:
+category: life
 tags: []
 ---
 {% include JB/setup %}

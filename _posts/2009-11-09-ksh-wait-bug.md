@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 又一个 ksh 的 bug
-category:
+category: tech
 tags: []
 ---
 {% include JB/setup %}

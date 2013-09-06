@@ -1,7 +1,7 @@
 ---
 layout: post
 title: gdb print 时报上下文没有该符号
-category:
+category: tech
 tags: []
 ---
 {% include JB/setup %}

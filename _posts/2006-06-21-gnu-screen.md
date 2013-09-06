@@ -1,7 +1,7 @@
 ---
 layout: post
 title: GNU screen实在是太帅了！
-category:
+category: tech
 tags: []
 ---
 {% include JB/setup %}

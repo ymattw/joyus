@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 如何增加 kernel 最大允许使用的 loop device 个数
-category:
+category: tech
 tags: []
 ---
 {% include JB/setup %}

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 小心你的 Email 暴露在 news server 上
-category:
+category: misc
 tags: []
 ---
 {% include JB/setup %}

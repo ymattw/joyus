@@ -1,7 +1,7 @@
 ---
 layout: post
 title: ls 不按字符串顺序排序？
-category:
+category: tech
 tags: []
 ---
 {% include JB/setup %}

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 豆沙绿
-category:
+category: misc
 tags: []
 ---
 {% include JB/setup %}

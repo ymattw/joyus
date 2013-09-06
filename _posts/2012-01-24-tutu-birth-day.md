@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 我有儿子啦
-category:
+category: life
 tags: []
 ---
 {% include JB/setup %}

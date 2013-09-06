@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 为 ubuntu 做了点微小的贡献
-category:
+category: tech
 tags: []
 ---
 {% include JB/setup %}

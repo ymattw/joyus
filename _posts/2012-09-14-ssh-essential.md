@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Slides for ssh essential
-category:
+category: tech
 tags: []
 ---
 {% include JB/setup %}

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 控诉 vpsempire 讹我 6.95 美元
-category:
+category: misc
 tags: []
 ---
 {% include JB/setup %}

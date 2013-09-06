@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 在上海
-category:
+category: life
 tags: []
 ---
 {% include JB/setup %}

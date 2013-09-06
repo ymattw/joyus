@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 儿子快满 8 个月了
-category:
+category: life
 tags: []
 ---
 {% include JB/setup %}

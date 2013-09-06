@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 生孩子是要政府批准的
-category:
+category: life
 tags: []
 ---
 {% include JB/setup %}
