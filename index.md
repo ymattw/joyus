@@ -5,13 +5,15 @@ tagline:
 ---
 {% include JB/setup %}
 
+**"A loss may turn out to be a gain" (Huainanzi).  Be happy, don't get angry.**
+
 ### About me
 
 <div style="float: left; margin-right: 10px">
     <img src="image/home/tutu-and-me.jpg" />
 </div>
 
-In IT industry (码农), living in Beijing China.  Loves freedom and simplicity.
+In IT industry (码农), living in Beijing, China.  Loves freedom and simplicity.
 Unix guy, Vim user, Mac user, open source enthusiast, likes to implement tools
 and automation with bash and python.  Likes to drive manual transmission cars.
 Likes [Weiqi](http://en.wikipedia.org/wiki/Weiqi) (entry level, just enough to
@@ -40,10 +42,6 @@ technical notes.
 
 This page and blog posts are powered by [GitHub Pages](http://pages.github.com/),
 check out [my repositories](https://github.com/ymattw/) on GitHub :-)
-
-> A loss may turn out to be a gain (Huainanzi).
-
-Be happy, don't get angry.
 
 ### Contact
 
