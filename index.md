@@ -13,11 +13,12 @@ tagline:
     <img src="image/home/tutu-and-me.jpg" />
 </div>
 
-In IT industry (码农), living in Beijing, China.  Loves freedom and simplicity.
-Unix guy, Vim user, Mac user, open source enthusiast, likes to implement tools
-and automation with bash and python.  Likes to drive manual transmission cars.
-Likes [Weiqi](http://en.wikipedia.org/wiki/Weiqi) (entry level, just enough to
-enjoy it).  Hates most in the world is unproductive meeting.
+Software engineer.  Currently Living in California, USA.  Loves freedom and
+simplicity.  Unix guy, Vim user, Mac user, open source enthusiast, likes to
+implement tools and automation with bash and python.  Likes to drive manual
+transmission cars.  Likes [Weiqi](http://en.wikipedia.org/wiki/Weiqi) (entry
+level, just enough to enjoy it).  Hates most in the world is unproductive
+meeting.
 
 I am happily married to [Cynthia](http://joyus.net), we have a boy child
 petnamed _Tutu_ who born in Chinese new year 2012.  I am being proud as a busy
