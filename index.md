@@ -13,25 +13,25 @@ tagline:
     <img src="image/home/tutu-and-me.jpg" />
 </div>
 
-Software engineer.  Currently Living in California, USA.  Loves freedom and
-simplicity.  Unix guy, Vim user, Mac user, open source enthusiast, likes to
-implement tools and automation with bash and python.  Likes to drive manual
-transmission cars.  Likes [Weiqi](http://en.wikipedia.org/wiki/Weiqi) (entry
-level, just enough to enjoy it).  Hates most in the world is unproductive
-meeting.
+Software engineer, Unix guy, Vim user, Mac user, open source enthusiast, loves
+simplicity, likes to implement automation tools.
 
-I am happily married to [Cynthia](http://joyus.net), we have a boy child
-petnamed _Tutu_ who born in Chinese new year 2012.  I am being proud as a busy
-daddy enjoying everyday with him.
+Amatuer [Weiqi](http://en.wikipedia.org/wiki/Weiqi) fan at entry level, just enough
+to enjoy it.
+
+Happily married to [Cynthia](http://joyus.net), busy father of a naughty boy, live
+in SF bay area, California, USA.
 
 <div style="float: right; margin-left: 10px">
     <img src="image/home/cynthia-and-tutu.jpg" /><br>
     <center><small>Cynthia and Tutu, May 2013</small></center>
 </div>
 
-I have a female dog named _Diudiu_ (means "loss") who lived with us from August
-2005 (when she was just one month old) until Tutu turned 6 months old.  She is
-now happier because of the freedom she has in the village.
+Likes to drive manual transmission cars.
+
+Hates most in the world is unproductive meeting.
+
+R.I.P. my pet dog _Diudiu_,  she's been with us for 7 years.
 
 <div style="float: right; margin-left: 10px">
     <img src="image/home/diudiu.jpg" /><br>
@@ -42,7 +42,7 @@ I used to writing [blog](/blog.html) but posts there are now just some boring
 technical notes.
 
 This page and blog posts are powered by [GitHub Pages](http://pages.github.com/),
-check out [my repositories](https://github.com/ymattw/) on GitHub :-)
+check out [my repositories](https://github.com/ymattw/) on GitHub.
 
 ### Contact
 
