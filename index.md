@@ -31,7 +31,7 @@ Likes to drive manual transmission cars.
 
 Hates most in the world is unproductive meeting.
 
-R.I.P. my pet dog _Diudiu_,  she's been with us for 7 years.
+R.I.P. our pet dog _Diudiu_,  she's been with us for 7 years.
 
 <div style="float: right; margin-left: 10px">
     <img src="image/home/diudiu.jpg" /><br>
