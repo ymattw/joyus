@@ -1,12 +1,12 @@
 ---
 layout: post
-title: 又一个 ksh 的 bug
+title: A ksh "wait" bug
 category: tech
 tags: [ksh]
 ---
 {% include JB/setup %}
 
-见鬼的事怎么总是我碰上。
+WTF?
 
     $ cat kshbug
     { return 0; } &amp;
@@ -32,8 +32,10 @@ use output text for return code check instead.  Note there's a similar
 [report for ksh on solaris](http://bugs.opensolaris.org/view_bug.do;jsessionid=8fdaa6bf6882fac8e944c8288f?bug_id=4452579)
 but it's not the identical issue.</p>
 
-Pdksh (public domain ksh) doesn't have the problem. (See
-[another bug](/2009/03/ksh93-bug.html))
+Pdksh (public domain ksh) doesn't have the problem. (See [another
+bug](/2009/03/ksh93-bug.html)).
+
+Couldn't figure out where to report this bug so gave up.
 
 **Update:** this issue doesn't happen on Ubuntu ksh version "sh (AT&amp;T
 Research) 93s+ 2008-01-31".
