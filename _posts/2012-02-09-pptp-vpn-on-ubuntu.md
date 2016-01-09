@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick guide for setting up a PPTP VPN server on Ubuntu 11.04
+title: Setting up a PPTP VPN server on Ubuntu 11.04
 category: tech
 tags: [vpn]
 ---
