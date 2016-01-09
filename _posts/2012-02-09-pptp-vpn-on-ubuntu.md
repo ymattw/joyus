@@ -1,24 +1,39 @@
 ---
 layout: post
-title: Ubuntu 11.04 上搭建 pptp vpn
+title: Quick guide for setting up a PPTP VPN server on Ubuntu 11.04
 category: tech
 tags: [vpn]
 ---
 {% include JB/setup %}
 
-刚迁移到新 VPS 上（提供商 [PhotonVPS](http://photonvps.com/)），系统是 Ubuntu
-11.04，用 pptpd 搭了个翻墙用的 vpn，过程记录一下备忘。
+This was a note for setting up a PPTP VPN server on a VPS (Virtual Private
+Server) hosted by [PhotonVPS](http://photonvps.com/) (unfortunately they do not
+provide VPS service anymore), OS was Ubuntu 11.04, however these notes should
+work for newer releases as well.
 
-Step 1. 装包 apt-get install pptpd
+**Step 1**. Install pptpd package.
 
-Step 2. 配置 /etc/pptpd.conf，假定最多分配到 .15
+```bash
+    sudo apt-get update
+    sudo apt-get install pptpd
+```
 
+**Step 2**. Configure `/etc/pptpd.conf`, define the IP address range we want to
+allocate, here I use .2-15, means allocate up to 14 IP addresses.
+
+```bash
+    cat << "EOF" | sudo tee /etc/pptpd.conf
     option /etc/ppp/pptpd-options
     localip 192.168.128.1
     remoteip 192.168.128.2-15
+    EOF
+```
 
-Step 3. 配置 /etc/ppp/pptpd-options，这里用的 DNS 是[OpenDNS](http://www.opendns.com)
+**Step 3**. Configure `/etc/ppp/pptpd-options`, here I am using Google provided
+public DNS, you can also use [OpenDNS](http://www.opendns.com).
 
+```bash
+    cat << "EOF" | sudo tee /etc/ppp/pptpd-options
     name pptpd
     refuse-pap
     refuse-chap
@@ -31,29 +46,46 @@ Step 3. 配置 /etc/ppp/pptpd-options，这里用的 DNS 是[OpenDNS](http://www
     novj
     novjccomp
     nologfd
-    ms-dns 208.67.222.222
-    ms-dns 208.67.220.220
+    ms-dns 8.8.8.8
+    ms-dns 8.8.4.4
     logfile /var/log/pptpd.log
     nodefaultroute
+    EOF
+```
 
-Step 4. 配置 /etc/ppp/chap-secrets（chap 这个词是英式英语，相当于 pal、buddy）
-，其中 server 这一列要和 /etc/ppp/pptpd-options 里的 name 一致。每用户一行
+**Step 4**. Configure `/etc/ppp/chap-secrets` ("chap" is a British English
+terminology, means "pal" or "buddy" in American English).  Here we must make
+sure the column of `server` is as the same value of `name` in
+`/etc/ppp/pptpd-options`.  One user per line and keep the file secret.
 
+```bash
+    cat << "EOF" | sudo tee /etc/ppp/chap-secrets
     # Secrets for authentication using CHAP
     # client     server  secret     IP addresses
     user1        pptpd   secret1    *
+    EOF
 
-Step 5. 允许 ip 转发
+    sudo chmod 600 /etc/ppp/chap-secrets
+```
 
-    sysctl -w net.ipv4.ip_forward=1
-    # 或：echo 1 > /proc/sys/net/ipv4/ip_forward 并放入系统启动脚本
+**Step 5**. Enable IP forwarding iptables rule
 
-Step 6. iptables 配置 nat 规则，并放入系统启动脚本 /etc/rc.local
+```bash
+    sudo sysctl -w net.ipv4.ip_forward=1
+    # Or：echo 1 > /proc/sys/net/ipv4/ip_forward and put into /etc/rc.local
+```
 
-    /sbin/iptables -t nat -A POSTROUTING -s 192.168.128.0/20 -o eth0 -j MASQUERADE
+**Step 6**. Configure a NAT iptables rule, and put into /etc/rc.local so that
+to take effect on boot
 
-Step 7. 重启 pptpd
+```bash
+    sudo /sbin/iptables -t nat -A POSTROUTING -s 192.168.128.0/20 -o eth0 -j MASQUERADE
+```
 
-    /etc/init.d/pptpd restart
+**Step 7**. Now restart pptpd
 
-调试看 /var/log/pptpd.log。
+```bash
+    sudo /etc/init.d/pptpd restart
+```
+
+See `/var/log/pptpd.log` to troubleshoot.
