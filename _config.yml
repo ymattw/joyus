@@ -3,9 +3,10 @@
 permalink: /:year/:month/:title.html
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
-pygments: true
-markdown: redcarpet
 highlighter: pygments
+markdown: redcarpet
+redcarpet:
+  extensions: ["tables", "autolink", "strikethrough", "space_after_headers", "with_toc_data", "fenced_code_blocks"]
 
 # Themes are encouraged to use these universal variables
 # so be sure to set them if your theme uses them.
