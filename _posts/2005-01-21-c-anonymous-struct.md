@@ -8,10 +8,13 @@ tags: [C]
 
 用 gdb 调试 OpenSSL 代码发现一个 `ASN1_VALUE` 类型的变量无法察看它的定义
 
-    (gdb) pt ptmpval
-    type = struct ASN1_VALUE_st {
-        &lt;incomplete&gt;
-    } *
+```
+(gdb) pt ptmpval
+type = struct ASN1_VALUE_st {
+    <incomplete>
+} *
+```
+
 
 察看源码只能找到下面这样一句：
 
