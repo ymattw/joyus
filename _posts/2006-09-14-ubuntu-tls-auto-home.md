@@ -16,25 +16,27 @@ mount option，mount point 和 mount entry，在 auto home 的情形下 key 当�
 
 先建立一个脚本 /etc/auto.home：
 
-    #!/bin/bash
-    
-    [ -z "$1" ] &amp;&amp; exit 1
-    
-    user=$1
-    options="-fstype=nfs,hard,intr,nodev,nosuid,nonstrict,async"
-    
-    info=$(ypcat -k auto.home | grep -w ^$user) || exit 1
-    # username [options] nfsdir
-    set -- $info
-    
-    if [ -n "$3" ]; then
-            options="$options,$2"
-            nfsdir="$3"
-    else
-            nfsdir="$2"
-    fi
-    
-    echo $options / $nfsdir
+```bash
+#!/bin/bash
+
+[[ -n "$1" ]] || exit 1
+
+user=$1
+options="-fstype=nfs,hard,intr,nodev,nosuid,nonstrict,async"
+
+info=$(ypcat -k auto.home | grep -w ^$user) || exit 1
+# username [options] nfsdir
+set -- $info
+
+if [ -n "$3" ]; then
+        options="$options,$2"
+        nfsdir="$3"
+else
+        nfsdir="$2"
+fi
+
+echo $options / $nfsdir
+```
 
 加上执行权限 `chmod +x /etc/auto.home`，很重要！
 
@@ -53,6 +55,6 @@ ls /home/user123 试一下，应该能列出目录，表示工作正常。
 
 **Update on Mar 16, 2007**：现在知道了有直接支持这个 NIS 映射自动加载的设置，
 man auto.master 就有了。只需要先执行 `ypcat -k auto.master` 得到映射
-表，如 /home 对应 auto.home，再在 /etc/auto.master 里加上一行 
+表，如 /home 对应 auto.home，再在 /etc/auto.master 里加上一行
 `/home yp:auto.home` 即可实现 /home 目录的自动加载。另外，上面这个脚本也不是没
 有用，它是通用办法，可以自己控制自动加载的行为。
