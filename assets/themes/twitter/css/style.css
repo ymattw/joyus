@@ -64,6 +64,12 @@
   border: 1px solid #4c964d;
   color: #FFF; }
 
+footer {
+  font-size: small;
+  color: #ccc;
+  text-align: center;
+}
+
 /*
  * github style
  */
