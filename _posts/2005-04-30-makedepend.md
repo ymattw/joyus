@@ -1,7 +1,6 @@
 ---
 layout: post
 title: makedepend
-category: tech
 tags: [make]
 ---
 {% include JB/setup %}

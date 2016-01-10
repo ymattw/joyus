@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Solaris nfs exporting
-category: tech
 tags: [solaris, nfs]
 ---
 {% include JB/setup %}

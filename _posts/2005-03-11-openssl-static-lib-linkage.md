@@ -1,7 +1,6 @@
 ---
 layout: post
 title: openssl 静态库连接顺序
-category: tech
 tags: [gcc, openssl]
 ---
 {% include JB/setup %}

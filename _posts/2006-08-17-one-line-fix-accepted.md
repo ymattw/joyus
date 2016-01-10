@@ -1,7 +1,6 @@
 ---
 layout: post
 title: One line fix accepted
-category: tech
 tags: [opensource]
 ---
 {% include JB/setup %}

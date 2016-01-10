@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Setting up a PPTP VPN server on Ubuntu 11.04
-category: tech
 tags: [vpn]
 ---
 {% include JB/setup %}

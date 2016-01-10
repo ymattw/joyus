@@ -1,7 +1,6 @@
 ---
 layout: post
 title: 用 google 解决问题若干
-category: tech
 tags: []
 ---
 {% include JB/setup %}

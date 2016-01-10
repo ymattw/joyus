@@ -1,7 +1,6 @@
 ---
 layout: post
 title: SSH via Proxy
-category: tech
 tags: [ssh, proxy]
 ---
 {% include JB/setup %}

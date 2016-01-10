@@ -1,7 +1,6 @@
 ---
 layout: post
 title: ubuntu：用 cu 命令连接串口
-category: tech
 tags: []
 ---
 {% include JB/setup %}

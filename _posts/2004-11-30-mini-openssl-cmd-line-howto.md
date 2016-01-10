@@ -1,7 +1,6 @@
 ---
 layout: post
 title: mini openssl command line howto
-category: tech
 tags: [openssl]
 ---
 {% include JB/setup %}

@@ -1,7 +1,6 @@
 ---
 layout: post
 title: A ksh "wait" bug
-category: tech
 tags: [ksh]
 ---
 {% include JB/setup %}
