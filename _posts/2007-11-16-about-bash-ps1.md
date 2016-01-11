@@ -3,7 +3,6 @@ layout: post
 title: 关于 bash PS1
 tags: [bash]
 ---
-{% include setup %}
 
 有些“高级”工程师、资深 Unix 用户，他们使用 bash 的时候就是一个默认的类似
 `bash-3.2 $` 的提示符，然后干活的过程中不停的 pwd，pwd，现在我涵养好一些了，

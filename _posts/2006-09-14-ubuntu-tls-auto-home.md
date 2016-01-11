@@ -3,7 +3,6 @@ layout: post
 title: Ubuntu 上自动 mount NIS 用户的主目录
 tags: [ubuntu, autofs]
 ---
-{% include setup %}
 
 Ubuntu 6.06 LTS，在 NIS 网络中不能自动 mount 主目录实在不方便，今天读了一下
 automount(8)，/etc/init.d/autofs 和 /etc/auto.net 终于把它弄出来了。关键是用

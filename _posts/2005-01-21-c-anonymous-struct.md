@@ -3,7 +3,6 @@ layout: post
 title: C anonymous struct
 tags: [C]
 ---
-{% include setup %}
 
 用 gdb 调试 OpenSSL 代码发现一个 `ASN1_VALUE` 类型的变量无法察看它的定义
 

@@ -3,7 +3,6 @@ layout: post
 title: Tip - RunAs with Explorer
 tags: [windows, runas]
 ---
-{% include setup %}
 
 RunAs with Explorer
 

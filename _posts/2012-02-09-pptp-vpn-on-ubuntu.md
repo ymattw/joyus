@@ -3,7 +3,6 @@ layout: post
 title: Setting up a PPTP VPN server on Ubuntu 11.04
 tags: [vpn]
 ---
-{% include setup %}
 
 This was a note for setting up a PPTP VPN server on a VPS (Virtual Private
 Server) hosted by [PhotonVPS](http://photonvps.com/) (unfortunately they do not

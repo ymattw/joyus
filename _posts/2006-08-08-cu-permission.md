@@ -3,7 +3,6 @@ layout: post
 title: ubuntu：用 cu 命令连接串口
 tags: []
 ---
-{% include setup %}
 
 连接串口软件很多，但我倾向于用简单的命令行工具，不爱用 minicom。cu  命令属于
 uucp 软件包，可用来连接串口，替代 solaris 上更常用的工具 tip。查看 man page，用

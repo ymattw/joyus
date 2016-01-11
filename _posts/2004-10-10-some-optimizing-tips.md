@@ -3,7 +3,6 @@ layout: post
 title: Some optimizing tips
 tags: [C]
 ---
-{% include setup %}
 
 * unrolling loops
 * reducing if-statements, e.g. `if (var < v) cnt++;` can be replaced by:

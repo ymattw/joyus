@@ -3,7 +3,6 @@ layout: post
 title: 关于静态库的连接顺序
 tags: [gcc]
 ---
-{% include setup %}
 
 解决了昨天的疑问，顺序的确是至关重要的。
 

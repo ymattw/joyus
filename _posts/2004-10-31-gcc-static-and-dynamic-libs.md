@@ -3,7 +3,6 @@ layout: post
 title: gcc 生成静态库和动态库的方法
 tags: [C, gcc]
 ---
-{% include setup %}
 
 总是想不起来，这次自己整理一下。
 

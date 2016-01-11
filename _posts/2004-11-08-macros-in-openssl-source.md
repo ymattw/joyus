@@ -3,7 +3,6 @@ layout: post
 title: Macros in openssl source code
 tags: [C, gcc]
 ---
-{% include setup %}
 
 你看到代码中某个地方用了一个Marco，想找它的原型，你发现ctags帮不上忙，grep -r
 也一无所获，想得通怎么回事吗？

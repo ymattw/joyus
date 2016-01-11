@@ -3,7 +3,6 @@ layout: post
 title: openssl 静态库连接顺序
 tags: [gcc, openssl]
 ---
-{% include setup %}
 
 在 apps/ 目录下连接 openssl ：
 

@@ -3,7 +3,6 @@ layout: post
 title: ls 不按字符串顺序排序？
 tags: [linux]
 ---
-{% include setup %}
 
 在 VPS（系统为 Ubuntu 11.04）ls 总感觉列出的内容很乱，仔细一看原来是列出的内容没有正常排序：
 

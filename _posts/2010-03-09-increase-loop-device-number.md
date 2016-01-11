@@ -3,7 +3,6 @@ layout: post
 title: 如何增加 kernel 最大允许使用的 loop device 个数
 tags: [linux]
 ---
-{% include setup %}
 
 整理下笔记。kernel 默认编译是最大允许 8 个 loop 设备，见到 mount: could not
 find any free loop device 错误时就该处理了，要么释放一些

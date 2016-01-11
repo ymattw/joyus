@@ -3,7 +3,6 @@ layout: post
 title: gnome-screensaver replacement
 tags: [linux]
 ---
-{% include setup %}
 
 My favorite screensaver is "nose man" from
 [xlockmore](http://www.tux.org/~bagleyd/xlockmore.html), but gnome screensaver

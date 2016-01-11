@@ -3,7 +3,6 @@ layout: post
 title: 用普通用户身份使用XP
 tags: [windows, runas]
 ---
-{% include setup %}
 
 建立一个 Users 组的用户，用于日常使用，再建立一个超级用户 root，用于系统管理和
 维护（之所以新加一个超级用户，是因为缺省的 Administrator 用户不会在登录时的用户

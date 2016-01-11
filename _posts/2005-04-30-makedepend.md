@@ -3,7 +3,6 @@ layout: post
 title: makedepend
 tags: [make]
 ---
-{% include setup %}
 
     depend:
     	makedepend -Y -- $(CFLAGS) -- $(SOURCES)
