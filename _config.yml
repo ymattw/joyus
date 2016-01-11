@@ -31,6 +31,8 @@ google_analytics_tracking_id: 'UA-1460037-1'
 
 disqus_short_name: joyusorg
 
+tags_path: /tags.html
+
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
 JB:
@@ -74,6 +76,5 @@ JB:
   # Some JB helpers refer to these paths; change them here if needed.
   #
   archive_path: /archive.html
-  tags_path: /tags.html
   atom_path: /atom.xml
   rss_path: /rss.xml
