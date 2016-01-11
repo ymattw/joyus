@@ -3,7 +3,7 @@ layout: page
 title: Blog
 group: navigation
 ---
-{% include JB/setup %}
+{% include setup %}
 
 ### 文章列表
 

@@ -3,7 +3,7 @@ layout: post
 title: 为 ubuntu 做了点微小的贡献
 tags: [ubuntu, opensource]
 ---
-{% include JB/setup %}
+{% include setup %}
 
 周五下班前遇到一个怪问题，gnome-session 突然启动失败，日志文件里也看不出问题根
 源。今天在家决心把它调试出来。过程很是费劲，首先要用 vpn 连到公司网络，然后

@@ -3,7 +3,7 @@ layout: post
 title: makedepend
 tags: [make]
 ---
-{% include JB/setup %}
+{% include setup %}
 
     depend:
     	makedepend -Y -- $(CFLAGS) -- $(SOURCES)

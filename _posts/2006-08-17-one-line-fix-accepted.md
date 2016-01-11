@@ -3,7 +3,7 @@ layout: post
 title: One line fix accepted
 tags: [opensource]
 ---
-{% include JB/setup %}
+{% include setup %}
 
 昨天没去参加 Novell 在海洋馆举行的 SUSE Linux 宣传活动，据说是大名鼎鼎的 suzhe
 讲的，有点后悔。打开信箱发现了一个安慰：前段时间为 ubuntu gdm 做的一个

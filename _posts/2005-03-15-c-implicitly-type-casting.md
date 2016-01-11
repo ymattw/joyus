@@ -3,7 +3,7 @@ layout: post
 title: 不易觉察的类型提升
 tags: [C]
 ---
-{% include JB/setup %}
+{% include setup %}
 
     (v4range->max[i] | ~mask) != v4range->max[i]
 

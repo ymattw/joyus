@@ -3,7 +3,7 @@ layout: post
 title: Some optimizing tips
 tags: [C]
 ---
-{% include JB/setup %}
+{% include setup %}
 
 * unrolling loops
 * reducing if-statements, e.g. `if (var < v) cnt++;` can be replaced by:

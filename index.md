@@ -3,7 +3,7 @@ layout: page
 title: Matthew Wang
 tagline:
 ---
-{% include JB/setup %}
+{% include setup %}
 
 > A loss may turn out to be a gain. ([Huainanzi](https://en.wikipedia.org/wiki/Huainanzi))
 

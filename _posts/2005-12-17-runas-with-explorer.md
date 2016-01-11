@@ -3,7 +3,7 @@ layout: post
 title: Tip - RunAs with Explorer
 tags: [windows, runas]
 ---
-{% include JB/setup %}
+{% include setup %}
 
 RunAs with Explorer
 

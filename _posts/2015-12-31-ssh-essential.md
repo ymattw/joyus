@@ -3,7 +3,7 @@ layout: post
 title: Slides for ssh essential
 tags: [ssh]
 ---
-{% include JB/setup %}
+{% include setup %}
 
 Essential knowledge about using ssh, written by me initially on 2012 with
 [impress.js](https://github.com/impress/impress.js), now rewritten in markdown

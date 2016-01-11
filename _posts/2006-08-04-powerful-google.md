@@ -3,7 +3,7 @@ layout: post
 title: 用 google 解决问题若干
 tags: []
 ---
-{% include JB/setup %}
+{% include setup %}
 
 从 Solaris 切换到 Ubuntu 6.06，安装很顺利，内网机器多得很，随便找台先备份，然后
 整个硬盘抹掉重装。在一个全是 Solaris 的网络中使用 Linux，比在一个全是 Windows

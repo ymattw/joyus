@@ -3,7 +3,7 @@ layout: post
 title: Solaris nfs exporting
 tags: [solaris, nfs]
 ---
-{% include JB/setup %}
+{% include setup %}
 
 1. Prepare dir for sharing, (assume "ws" for group member, "tmp" for everyone):
 

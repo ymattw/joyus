@@ -3,7 +3,7 @@ layout: post
 title: mini openssl command line howto
 tags: [openssl]
 ---
-{% include JB/setup %}
+{% include setup %}
 
 ### install openssl
 

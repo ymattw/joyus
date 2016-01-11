@@ -3,7 +3,7 @@ layout: post
 title: Word 排版要略
 tags: [word]
 ---
-{% include JB/setup %}
+{% include setup %}
 
 小论文写完了，总算觉得轻松点了，前一阵子阅读侯捷的《word排版艺术》所得精要，再
 加上这段时间的实践，word 排版步骤总结如下：

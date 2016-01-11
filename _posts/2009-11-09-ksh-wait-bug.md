@@ -3,7 +3,7 @@ layout: post
 title: A ksh "wait" bug
 tags: [ksh]
 ---
-{% include JB/setup %}
+{% include setup %}
 
 WTF?
 
