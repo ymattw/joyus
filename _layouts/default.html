@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>{{ page.title }}</title>
     {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
-    <meta name="author" content="{{ site.author.name }}">
+    <meta name="author" content="{{ site.author }}">
 
     <!-- Enable responsive viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,7 +53,7 @@
         {{ content }}
       </div>
       <footer>
-        <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }} | JOYUS.ORG</p>
+        <p>&copy; {{ site.time | date: '%Y' }} {{ site.author }} | JOYUS.ORG</p>
       </footer>
 
     </div>

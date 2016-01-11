@@ -1,5 +1,4 @@
-# This is the default format.
-# For more see: http://jekyllrb.com/docs/permalinks/
+# This is the default format, ref: http://jekyllrb.com/docs/permalinks/
 permalink: /:year/:month/:title.html
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
@@ -8,21 +7,14 @@ markdown: redcarpet
 redcarpet:
   extensions: ["tables", "autolink", "strikethrough", "space_after_headers", "with_toc_data", "fenced_code_blocks"]
 
-# Themes are encouraged to use these universal variables
-# so be sure to set them if your theme uses them.
+# Site information
 #
-title: 辞不达意
-tagline: Site Tagline
-author :
-  name: Matthew Wang
-  github: ymattw
-
 site_url: http://joyus.org
-
+title: 辞不达意
+tagline:
+author: Matthew Wang
 google_analytics_tracking_id: 'UA-1460037-1'
-
 disqus_short_name: joyusorg
-
 tags_path: /tags.html
 atom_path: /atom.xml
 rss_path: /rss.xml
