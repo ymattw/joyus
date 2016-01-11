@@ -29,6 +29,8 @@ production_url: http://joyus.org
 
 google_analytics_tracking_id: 'UA-1460037-1'
 
+disqus_short_name: joyusorg
+
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
 JB:
@@ -76,15 +78,6 @@ JB:
   tags_path: /tags.html
   atom_path: /atom.xml
   rss_path: /rss.xml
-
-  # Settings for comments helper
-  # Set 'provider' to the comment provider you want to use.
-  # Set 'provider' to false to turn commenting off globally.
-  #
-  comments :
-    provider: disqus
-    disqus :
-      short_name: joyusorg
 
   # Settings for sharing helper.
   # Sharing is for things like tweet, plusone, like, reddit buttons etc.
