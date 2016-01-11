@@ -12,7 +12,7 @@ tags: [linux]
     CNAME
     _config.yml
     css
-    image
+    images
     _includes
     index.html
     js
@@ -33,7 +33,7 @@ ASC 码表里大写字母是在小写字母前面的，`CNAME` 应该排在 `blo
     CNAME
     _config.yml
     css
-    image
+    images
     _includes
     index.html
     js
@@ -72,7 +72,7 @@ ls 的输出终于正常了：
     _site/
     blog/
     css/
-    image/
+    images/
     index.html
     js/
     pub/
