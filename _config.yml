@@ -27,6 +27,8 @@ author :
 #
 production_url: http://joyus.org
 
+google_analytics_tracking_id: 'UA-1460037-1'
+
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
 JB:
@@ -83,15 +85,6 @@ JB:
     provider: disqus
     disqus :
       short_name: joyusorg
-
-  # Settings for analytics helper
-  # Set 'provider' to the analytics provider you want to use.
-  # Set 'provider' to false to turn analytics off globally.
-  #
-  analytics :
-    provider: google
-    google :
-        tracking_id: 'UA-1460037-1'
 
   # Settings for sharing helper.
   # Sharing is for things like tweet, plusone, like, reddit buttons etc.
