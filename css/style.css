@@ -26,7 +26,9 @@
 /* post-full*/
 .post-full .date {
   margin-bottom: 20px;
-  font-weight: bold; }
+  font-style: italic;
+  color: #777;
+}
 
 /* tag_box */
 .tag_box {
@@ -141,3 +143,15 @@ footer {
 .highlight .vg { color: #268BD2 } /* Name.Variable.Global */
 .highlight .vi { color: #268BD2 } /* Name.Variable.Instance */
 .highlight .il { color: #2AA198 } /* Literal.Number.Integer.Long */
+
+/*
+ * Overriden styles
+ */
+.page-header {
+  border: 0;
+  margin-bottom: 0;
+}
+
+.content {
+  font-family: "georgia", "arial";
+}
