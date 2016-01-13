@@ -8,22 +8,25 @@ layout: default
 
 <div class="row-fluid post-full">
   <div class="span12">
-    <div class="date">
-      <span class="icon-calendar"></span>
+    <div class="post-meta">
+      <span class="icon-user"></span>
+      <span><a href="{{ site.site_url }}">{{ site.author }}</a></span>
+
+      <span class="icon-time"></span>
       <span>{{ page.date | date: "%B %-d, %Y" }}</span>
+
+      {% unless page.tags == empty %}
+      <!-- page.tags is an Array -->
+      {% for tag in page.tags %}
+        <span class="icon-tag"></span>
+        <span><a href="{{ site.tags_path }}#{{ tag }}-ref">{{ tag }} </a></span>
+      {% endfor %}
+      {% endunless %}
     </div>
 
     <div class="content">
       {{ content }}
     </div>
-
-  {% unless page.tags == empty %}
-    <ul class="tag_box inline">
-      <li><i class="icon-tags"></i></li>
-      {% assign tags_list = page.tags %}
-      {% include tags_list %}
-    </ul>
-  {% endunless %}
 
     <hr>
     <div class="pagination">
