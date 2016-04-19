@@ -49,7 +49,7 @@ while True:
         line = p.stdout.readline()
         if not line:
             break
-        sys.stdout.write(line)
+        sys.stdout.write(line)  # grep here
 
 sys.exit(p.wait())
 ```
