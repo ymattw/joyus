@@ -2,6 +2,7 @@
 layout: page
 title: Home
 group: navigation
+order: 1
 ---
 
 > A loss may turn out to be a gain. ([Huainanzi](https://en.wikipedia.org/wiki/Huainanzi))
