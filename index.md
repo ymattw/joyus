@@ -1,6 +1,7 @@
 ---
 layout: page
-title: Matthew Wang
+title: Home
+group: navigation
 ---
 
 > A loss may turn out to be a gain. ([Huainanzi](https://en.wikipedia.org/wiki/Huainanzi))

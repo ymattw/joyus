@@ -23,8 +23,7 @@
   margin: 10px 0;
   text-align: left; }
 
-/* post-full*/
-.post-full .post-meta {
+.row-fluid .post-meta {
   margin-bottom: 20px;
   font-style: italic;
   color: #777;

@@ -53,14 +53,6 @@
 
         <div id="main-menu" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <!--
-            <li><a href="#">Current Page! {{ page.url }}</a></li>
-            <li class="active"><a href="/">About</a></li>
-            <li><a href="/blog.html">Blog</a></li>
-            <li><a href="/tags.html">Tags</a></li>
-            <li><a href="/archive.html">Archive</a></li>
-            -->
-
             {% for p in site.pages %}
               {% if p.group != "navigation" %}
                 {% continue %}
