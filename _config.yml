@@ -10,7 +10,8 @@ redcarpet:
 # Site information
 #
 site_url: http://joyus.org
-title: 辞不达意
+headline: Unsorted Notes
+tagline: "matthew@wang:~% strings /dev/urandom"
 author: Matthew Wang
 google_analytics_tracking_id: 'UA-1460037-1'
 disqus_short_name: joyusorg

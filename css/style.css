@@ -9,6 +9,27 @@
 .navbar .nav {
   float: right; }
 
+.navbar img#brand {
+  width: 32px;
+  height:: 32px;
+  margin: -5px 5px 0 0;
+  float: left;
+}
+
+.navbar #headline {
+  font-size: 20px;
+  line-height: 12px;
+  font-family: fantasy;
+  color: darkorange;
+}
+
+.navbar #tagline {
+  font-size: 9px;
+  font-family: courier;
+  min-width: 240px;
+  color: #333;
+}
+
 /* posts index */
 .post > h3.title {
   position: relative;
@@ -154,4 +175,15 @@ footer {
 .content {
   font-family: "georgia", "arial";
   padding-top: 50px;
+}
+
+blockquote {
+  border: 2px solid #eee;
+  font-size: 1em;
+}
+
+.navbar-toggle {
+  padding: 9px 6px;
+  border: 0;
+  margin-right: 10px;
 }
