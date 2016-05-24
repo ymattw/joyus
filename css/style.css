@@ -3,7 +3,7 @@ body {
 }
 
 .container {
-  max-width: 800px;
+  max-width: 750px;
 }
 
 .navbar .nav {
@@ -21,7 +21,7 @@ body {
   font-size: 22px;
   line-height: 12px;
   font-family: fantasy;
-  color: #337ab7;
+  color: #01259F;
 }
 
 .navbar #tagline {
@@ -172,7 +172,7 @@ footer {
 }
 
 .content {
-  font-family: "georgia", "arial";
+  font-family: "Roboto Slab", "Georgia", "Arial";
   padding-top: 50px;
 }
 
