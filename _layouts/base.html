@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+    <meta name="author" content="{{ site.author }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet" type="text/css">
+    <link href="/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" href="/images/nose-16x16.jpg">
+
+    <!-- atom & rss feed -->
+    <link href="{{ site.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="{{ site.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+  </head>
+
+  <body>
+    {{ content }}
+    {% include google-analytics %}
+  </body>
+</html>
