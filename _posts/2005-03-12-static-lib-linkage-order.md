@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Static linking with gcc: order matters
+title: "Static linking with gcc: order matters"
 tags: [gcc]
 ---
 

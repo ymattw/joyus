@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Static linking openssl: order matters?
+title: "Static linking openssl: order matters?"
 tags: [gcc, openssl]
 ---
 
