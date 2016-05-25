@@ -15,9 +15,9 @@ tags: [ssh, proxy]
 用于 openssh 时在 ~/.ssh/config 里用 ProxyCommand 命令，例如：
 
     Host joyus
-        User <i>fakename</i>
+        User me
         Hostname joyus.org
-        ProxyCommand connect -4 -H <i>proxyserver</i>:<i>port</i> %h %p
+        ProxyCommand connect -4 -H proxyserver:port %h %p
 
 更多信息：
 
