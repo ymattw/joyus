@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Tip - RunAs with Explorer
+title: Tip - RunAs and Explorer
 tags: [windows, runas]
 ---
 

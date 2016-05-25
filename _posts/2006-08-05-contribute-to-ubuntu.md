@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 为 ubuntu 做了点微小的贡献
+title: Made a small contribution to ubuntu
 tags: [ubuntu, opensource]
 ---
 

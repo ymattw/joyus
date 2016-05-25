@@ -1,6 +1,6 @@
 ---
 layout: post
-title: openssl 静态库连接顺序
+title: Static linking openssl: order matters?
 tags: [gcc, openssl]
 ---
 

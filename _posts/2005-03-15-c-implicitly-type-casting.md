@@ -1,10 +1,12 @@
 ---
 layout: post
-title: 不易觉察的类型提升
+title: Implicit type casting in C
 tags: [C]
 ---
 
-    (v4range->max[i] | ~mask) != v4range->max[i]
+```
+(v4range->max[i] | ~mask) != v4range->max[i]
+```
 
 `max[i]` 和 `mask` 都是 `unsigned char`，mask 为 0xff 取反时发生了类型提升，变
 成了一个负的 int 型整数，bitor 之后两边作为 int 来比较，条件判断意外的为真了。

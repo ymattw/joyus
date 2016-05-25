@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 关于静态库的连接顺序
+title: Static linking with gcc: order matters
 tags: [gcc]
 ---
 

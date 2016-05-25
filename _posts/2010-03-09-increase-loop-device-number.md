@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 如何增加 kernel 最大允许使用的 loop device 个数
+title: How to increase max number of loop devices
 tags: [linux]
 ---
 

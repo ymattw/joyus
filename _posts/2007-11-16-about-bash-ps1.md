@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 关于 bash PS1
+title: Thoughts bout bash PS1
 tags: [bash]
 ---
 

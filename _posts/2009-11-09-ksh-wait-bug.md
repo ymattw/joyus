@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A ksh "wait" bug
+title: A ksh bug on "wait"
 tags: [ksh]
 ---
 

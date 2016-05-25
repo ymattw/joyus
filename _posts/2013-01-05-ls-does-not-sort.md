@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ls 不按字符串顺序排序？
+title: Why ls output does not sort in alphabet order
 tags: [linux]
 ---
 

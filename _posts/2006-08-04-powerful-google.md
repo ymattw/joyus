@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 用 google 解决问题若干
+title: Ask google when you have tech problems
 tags: []
 ---
 

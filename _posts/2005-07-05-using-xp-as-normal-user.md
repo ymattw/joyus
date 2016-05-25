@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 用普通用户身份使用XP
+title: Run Windows XP with a non-admin user
 tags: [windows, runas]
 ---
 

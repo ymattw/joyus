@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Word 排版要略
+title: Word processing tips with MS office
 tags: [word]
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: gcc 生成静态库和动态库的方法
+title: How to generate static library (.a) and shared library (.so) with gcc
 tags: [C, gcc]
 ---
 

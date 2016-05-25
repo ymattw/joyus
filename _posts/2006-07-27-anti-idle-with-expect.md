@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 用 Expect 防发呆原来这么简单
+title: Anti-idle with expect
 tags: [expect]
 ---
 
