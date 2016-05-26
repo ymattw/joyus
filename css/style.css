@@ -56,6 +56,10 @@ pre {
   margin-left: 18px;
 }
 
+.console span.dir {
+  padding: 0 10px 0 0;
+}
+
 pre.highlight {
   border: 1pt solid #586e75;
   box-shadow: 5pt 5pt 8pt #002b36;
@@ -68,6 +72,7 @@ pre.highlight {
 
 .navbar {
   height: 32px;
+  line-height: 32px;
   background-color: #073642;
   font-size: 16px;
 }
@@ -79,14 +84,8 @@ pre.highlight {
   float: left;
 }
 
-.navbar #headline {
-  float: left;
-  margin: 6px;
-}
-
 .navbar #nav-menu {
   float: right;
-  margin-top: 6px;
 }
 
 .navbar #nav-menu a {
@@ -94,7 +93,7 @@ pre.highlight {
 }
 
 .navbar #nav-menu .active {
-  background-color: #586e75;
+  background-color: #d48321;
 }
 
 .post-meta {
