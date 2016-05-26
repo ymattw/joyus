@@ -22,7 +22,7 @@ Be happy, don't get angry.
   {% assign uptime_hours = uptime | modulo: 86400 | divided_by: 3600 %}
   {% assign uptime_minutes = uptime | modulo: 3600 | divided_by: 60 %}
   {{ site.time | date: '%T' }} up {{ uptime_days }} days,
-  {{ uptime_hours }}:{{ uptime_minutes | prepend: '0' | slice: -3, 2 }},
+  {{ uptime_hours }}:{{ uptime_minutes | prepend: '0' | slice: -2, 2 }},
   1 user, load average: 0.01, 0.02, 0.05
 </p>
 
