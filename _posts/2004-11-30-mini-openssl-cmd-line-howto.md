@@ -24,7 +24,7 @@ tags: [openssl]
     mkdir crl
     mkdir private
     touch index.txt
-    echo 01 &gt; serial
+    echo 01 > serial
     vi ../openssl.cnf  # change demoCA, policy, filename of key and root cert
                        # note: you can use ./demoCA of course ...
 

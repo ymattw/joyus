@@ -31,7 +31,7 @@ the long man page again.
 
 Since it's an X11 program, it could be started only after a user logged in
 to X.  To start it automatically for gnome X manager, use session manager
-tool to add an entry is a handy way, "System" -&gt; "Preference" -&gt;
+tool to add an entry is a handy way, "System" -> "Preference" ->
 "Sessions".
 
 Also, you can create a shortcut point to command `xautolock -locknow` to lock
