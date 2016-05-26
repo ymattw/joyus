@@ -15,12 +15,15 @@ Be happy, don't get angry.
 
 <p>
 <div class="prompt">% ls /</div>
-<a href="/blog">blog</a>    <a href="/tags">tags</a>    <a href="/archive">archive</a>
+{% assign site_pages = site.pages | where:"group","navigation" %}
+{% for p in site_pages %}
+  <span class="dir"><a href="{{ p.url }}">{{ p.title }}</a></span>
+{% endfor %}
 </p>
 
 <p>
 <div class="prompt">% whoami</div>
-Matthew Wang
+{{ site.author }}
 </p>
 
 <p>
