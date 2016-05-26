@@ -15,53 +15,53 @@ Be happy, don't get angry.
 <p>Last login: {{ domain_reg_time }} from tty1</p>
 
 <p>
-<div class="prompt">% uptime</div>
-{% assign domain_reg_utime = domain_reg_time | date: '%s' %}
-{% assign uptime = site.time | date: '%s' | minus: domain_reg_utime %}
-{% assign uptime_days = uptime | divided_by: 86400 %}
-{% assign uptime_hours = uptime | modulo: 86400 | divided_by: 3600 %}
-{% assign uptime_minutes = uptime | modulo: 3600 | divided_by: 60 %}
-{{ site.time | date: '%T' }} up {{ uptime_days }} days,
-{{ uptime_hours }}:{{ uptime_minutes | prepend: '0' | slice: -3, 2 }},
-1 user, load average: 0.01, 0.02, 0.05
+  <div class="prompt">% uptime</div>
+  {% assign domain_reg_utime = domain_reg_time | date: '%s' %}
+  {% assign uptime = site.time | date: '%s' | minus: domain_reg_utime %}
+  {% assign uptime_days = uptime | divided_by: 86400 %}
+  {% assign uptime_hours = uptime | modulo: 86400 | divided_by: 3600 %}
+  {% assign uptime_minutes = uptime | modulo: 3600 | divided_by: 60 %}
+  {{ site.time | date: '%T' }} up {{ uptime_days }} days,
+  {{ uptime_hours }}:{{ uptime_minutes | prepend: '0' | slice: -3, 2 }},
+  1 user, load average: 0.01, 0.02, 0.05
 </p>
 
 <p>
-<div class="prompt">% ls /</div>
-{% assign site_pages = site.pages | where:"group","navigation" %}
-{% for p in site_pages %}
-  <span class="dir"><a href="{{ p.url }}">{{ p.title }}</a></span>
-{% endfor %}
+  <div class="prompt">% ls /</div>
+  {% assign site_pages = site.pages | where:"group","navigation" %}
+  {% for p in site_pages %}
+    <span class="dir"><a href="{{ p.url }}">{{ p.title }}</a></span>
+  {% endfor %}
 </p>
 
 <p>
-<div class="prompt">% whoami</div>
-{{ site.author }}
+  <div class="prompt">% whoami</div>
+  {{ site.author }}
 </p>
 
 <p>
-<div class="prompt">% cat about-me.txt</div>
-<ul>
-  <li>A busy father of a naughty boy, living in Beijing, China
-  <li>Software engineer, Unix guy, Vim user, Mac user, open source enthusiast
-  <li>Loves simplicity and believes in the <a href="https://en.wikipedia.org/wiki/KISS_principle">KISS principle</a>
-  <li>Hates most in the world is unproductive meetings
-  <li>Amateur <a href="http://en.wikipedia.org/wiki/Weiqi">Weiqi</a> fan at entry level, just enough to enjoy it
-</ul>
+  <div class="prompt">% cat about-me.txt</div>
+  <ul>
+    <li>A busy father of a naughty boy, living in Beijing, China
+    <li>Software engineer, Unix guy, Vim user, Mac user, open source enthusiast
+    <li>Loves simplicity and believes in the <a href="https://en.wikipedia.org/wiki/KISS_principle">KISS principle</a>
+    <li>Hates most in the world is unproductive meetings
+    <li>Amateur <a href="http://en.wikipedia.org/wiki/Weiqi">Weiqi</a> fan at entry level, just enough to enjoy it
+  </ul>
 
-You may find more useful stuff from my <a href="https://github.com/ymattw/">GitHub</a> repositories.
+  You may find more useful stuff from my
+  <a href="https://github.com/ymattw/">GitHub</a> repositories.
 </p>
 
 <p>
-<div class="prompt">% cat contact.txt</div>
-<p>
-For job opportunities please contact me via <a href="https://www.linkedin.com/in/ymattw">LinkedIn</a> message. Geeks you know where to
-find my email address :-).
-</p>
+  <div class="prompt">% cat contact.txt</div>
+  <p>For job opportunities please contact me via
+  <a href="https://www.linkedin.com/in/ymattw">LinkedIn</a>
+  messages. Geeks you know where to find my email address :-).</p>
 </p>
 
 <p>
-<div class="prompt">% cat copying.txt</div>
+  <div class="prompt">% cat copying.txt</div>
 </p>
 
 </div>
