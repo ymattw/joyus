@@ -26,19 +26,19 @@ order:
 2. The SHA-1 the user is trying to push, and
 3. The name of the reference (branch)
 
-If the update script exits non-zero, that reference will be rejected, awesome!
+If the hook script exits non-zero, that reference will be rejected, awesome!
 I can get enough information of the objects being pushed according to the given
 SHA-1's, for example, filename extension and file size.
 
 Some thoughts to get started:
 
 - Filtering by filename extension won't solve the problem because people can
-  easily work around, what I want is filtering by file size
+  easily work around, what I need is filtering by file size
 - I need to be careful - only filter those _**new objects**_, otherwise those
   people will complain right away because no new commits can be pushed
 - Push of new branches should be allowed at this time due to the same reason
 
-After some experimental I know some facts:
+After some experiment I know these facts:
 
 - I can use `git ls-tree` over the two SHA-1's and diff the output to tell
   _**new objects**_ and their sizes
@@ -48,11 +48,11 @@ After some experimental I know some facts:
 - I can `echo $'\e[31m'` ([ANSI escape
   code](https://en.wikipedia.org/wiki/ANSI_escape_code)) to highlight text in
   red and `echo $'\e[0m'` to reset
-- GitLab expects my customized hook to be placed under
-  **REPO/custom_hooks/pre-receive**
 
-Finally I worked out a prototype in bash script and it worked fine, no more
-file has size exceeds 10MB can be pushed in!
+Finally I worked out a prototype in bash script.  Name it `pre-receive`, set
+execution bit with `chmod +x`, then use a cron job to place it under
+**custom_hooks/** dir of all repos.  It worked fine, no more file has size
+exceeds 10MB can be pushed in!
 
 ```bash
 #!/bin/bash
