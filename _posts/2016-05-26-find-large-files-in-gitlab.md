@@ -7,10 +7,10 @@ tags: [git, gitlab]
 I maintain a GitLab server for developers in our department, when reviewing
 repositories stats in "Admin area", I see some of them are really large.
 I guess some junior people committed large binaries into it, so how do I tell
-what are them?
+where are they?
 
-After read the git manually I found it's very easy with `git ls-tree` command.
-The two important options are:
+After read the git manual I found it's very easy to get with `git ls-tree`
+command.  The two important options are:
 
     -r
         Recurse into sub-trees.
