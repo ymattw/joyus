@@ -14,9 +14,10 @@ layout: default
       <span><a href="{{ site.site_url }}">{{ site.author }}</a></span>
 
       <span class="icon-time"></span>
-      <span>{{ page.date | date: "%B %-d, %Y" }}</span>
+      <span>on {{ page.date | date: "%B %-d, %Y" }},</span>
 
       {% unless page.tags == empty %}
+      tags:
       <!-- page.tags is an Array -->
       {% for tag in page.tags %}
         <span class="icon-tag"></span>
