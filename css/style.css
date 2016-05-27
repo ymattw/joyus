@@ -47,6 +47,11 @@ pre {
   box-shadow: none;
 }
 
+.page-header {
+  border: 0;
+  margin: 0;
+}
+
 .console {
   font-family: Inconsolata, monospace;
 }
@@ -102,6 +107,14 @@ pre.highlight {
   font-size: 90%;
 }
 
+.pagination .newer {
+  float: left;
+}
+
+.pagination .older {
+  float: right;
+}
+
 /* tag_box */
 .tag_box {
   list-style: none;
@@ -125,9 +138,4 @@ pre.highlight {
 footer {
   font-size: 80%;
   text-align: center;
-}
-
-.page-header {
-  border: 0;
-  margin: 0;
 }

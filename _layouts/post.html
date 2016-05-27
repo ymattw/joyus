@@ -30,14 +30,12 @@ layout: default
     </div>
 
     <div class="pagination">
-      <ul>
-      {% if page.previous %}
-        <li><a href="{{ page.previous.url }}" title="{{ page.previous.title }}">&larr; Older</a></li>
-      {% endif %}
       {% if page.next %}
-        <li><a href="{{ page.next.url }}" title="{{ page.next.title }}">Newer &rarr;</a></li>
+        <a class="newer" href="{{ page.next.url }}" title="{{ page.next.title }}">&larr; Newer </a>
       {% endif %}
-      </ul>
+      {% if page.previous %}
+        <a class="older" href="{{ page.previous.url }}" title="{{ page.previous.title }}">Older &rarr; </a>
+      {% endif %}
     </div>
 
     {% include disqus-comments %}
