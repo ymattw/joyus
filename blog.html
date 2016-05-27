@@ -36,10 +36,14 @@ order: 2
 {% endfor %}
 
 <h3>Recent posts</h3>
-
 <ul class="posts">
   {% for post in site.posts limit: 5 offset:1 %}
     <li><a href="{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
-  <li>(See <a href="/tags.html">posts by tags</a> or <a href="/archive.html">all posts</a>)</li>
+</ul>
+
+<h3>See also</h3>
+<ul class="posts">
+  <li><a href="/tags.html">Posts by tags</a></li>
+  <li><a href="/archive.html">Post archives</a></li>
 </ul>
