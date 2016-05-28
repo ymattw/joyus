@@ -12,19 +12,22 @@ order: 1
 Be happy, don't get angry.
 
 {% assign domain_reg_time = "Fri Jun 2 10:21:44 2006" %}
-<p>Last login: {{ domain_reg_time }} from tty1</p>
+{% assign domain_reg_utime = domain_reg_time | date: '%s' %}
+{% assign uptime = site.time | date: '%s' | minus: domain_reg_utime %}
+{% assign uptime_days = uptime | divided_by: 86400 %}
+{% assign uptime_hours = uptime | modulo: 86400 | divided_by: 3600 %}
+{% assign uptime_minutes = uptime | modulo: 3600 | divided_by: 60 %}
 
+<p>Last login: {{ site.time | date: '%a %b %-d %T %z' }} from tty1</p>
+
+<!--
 <p>
   <div class="prompt">% uptime</div>
-  {% assign domain_reg_utime = domain_reg_time | date: '%s' %}
-  {% assign uptime = site.time | date: '%s' | minus: domain_reg_utime %}
-  {% assign uptime_days = uptime | divided_by: 86400 %}
-  {% assign uptime_hours = uptime | modulo: 86400 | divided_by: 3600 %}
-  {% assign uptime_minutes = uptime | modulo: 3600 | divided_by: 60 %}
   {{ site.time | date: '%T' }} up {{ uptime_days }} days,
   {{ uptime_hours }}:{{ uptime_minutes | prepend: '0' | slice: -2, 2 }},
   1 user, load average: 0.01, 0.02, 0.05
 </p>
+-->
 
 <p>
   <div class="prompt">% ls /</div>
