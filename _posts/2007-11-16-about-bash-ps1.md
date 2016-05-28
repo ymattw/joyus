@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Thoughts bout bash PS1
-tags: [bash]
+tags: [bash, shell]
 ---
 
 有些“高级”工程师、资深 Unix 用户，他们使用 bash 的时候就是一个默认的类似
