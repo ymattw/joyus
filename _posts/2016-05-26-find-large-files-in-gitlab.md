@@ -28,7 +28,7 @@ shows me:
 100644 blob d3c4799576ce1217f41a8f4fbca9c387650db0bf     259    Gemfile
 100644 blob 1cb1921e62f36b138288e6962fccb1e922b2cbdb    3262    Gemfile.lock
 ...
-100644 blob 3a592ace134535d8003bad502d7b119821e84820    8265    images/nose-96x96.jpg
+100644 blob 3a592ace134535d8003bad502d7b119821e84820    8265    assets/site/nose-96x96.jpg
 ...
 ```
 
