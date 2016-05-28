@@ -4,8 +4,8 @@ title: Simplest way to monitor disk usage
 tags: [cron, shell]
 ---
 
-Are you using a complex system to monitoring disk usage on your servers and
-deliver you alarms when usage is high?
+Are you using a complex system to monitor disk usage on your servers and
+deliver you alarm when usage is high?
 
 Here's my solution - just use cron job.  It checks every 30 minutes and send
 you an email when disk usage is greater than 70%.
