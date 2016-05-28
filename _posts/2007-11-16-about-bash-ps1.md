@@ -33,6 +33,6 @@ PS1 是个很个性的东西，但是总得要让自己干活更有效率一点�
 
     export PS1='\e[1m\h: \w $(job_color)\e[0m\n\$ '
 
-<img src="/images/2007/PS1.jpg" alt="PS1" />
+<img src="/assets/2007/PS1.jpg" alt="PS1" />
 
 请 man bash，看 **PROMPTING** 一节。

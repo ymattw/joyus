@@ -54,4 +54,4 @@ while True:
 sys.exit(p.wait())
 ```
 
-![Streamline popen output](/images/2016/streamline-popen-output.gif)
+![Streamline popen output](/assets/2016/streamline-popen-output.gif)
