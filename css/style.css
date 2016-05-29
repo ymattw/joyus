@@ -68,6 +68,8 @@ pre {
 pre.highlight {
   border: 1pt solid #586e75;
   box-shadow: 5pt 5pt 8pt #002b36;
+  max-height: 200px;
+  overflow: auto;
 }
 
 .prompt {
