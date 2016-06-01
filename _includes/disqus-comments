@@ -5,8 +5,8 @@
 <script>
   // Ref: https://disqus.com/admin/universalcode/#configuration-variables
   var disqus_config = function () {
-      this.page.url = '{{ site.site_url }}{{ post.url }}';
-      this.page.identifier = '{{ site.site_url }}{{ post.id }}';
+      this.page.url = '{{ site.url }}{{ post.url }}';
+      this.page.identifier = '{{ site.url }}{{ post.id }}';
   };
 
   var disqus_shortname = '{{ site.disqus_short_name }}';
