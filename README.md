@@ -1,4 +1,4 @@
-# Pages for [joyus.org](https://joyus.org)
+# Pages for [joyus.org](http://joyus.org)
 
 ## Setup development environment
 

@@ -12,8 +12,7 @@ redcarpet:
 
 # Site information
 #
-url: https://joyus.org
-enforce_ssl: joyus.org
+url: http://joyus.org
 title: "Unsorted Notes"
 author: Matthew Wang
 google_analytics_tracking_id: 'UA-1460037-1'
