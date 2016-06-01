@@ -20,7 +20,7 @@ order: 5
                 <title>{{ post.title }}</title>
                 <description>{{ post.content | xml_escape }}</description>
                 <link>{{ site.url }}{{ post.url }}</link>
-                <guid>{{ site.url }}{{ post.id }}</guid>
+                <guid>{{ site.url | remove_first: 'http://' | remove_first: 'https://' }}{{ post.id }}</guid>
                 <pubDate>{{ post.date | date_to_xmlschema }}</pubDate>
         </item>
 {% endfor %}
