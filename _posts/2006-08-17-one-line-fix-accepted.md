@@ -30,5 +30,3 @@ tags: [opensource, ubuntu]
     --
     gnome-session fails when "alias ls='ls --color'" in .profile
     https://launchpad.net/bugs/48876
-
-Email地址做了处理，相信不会有 spam 智能到能识别 at 同时还能解析 javascript。
