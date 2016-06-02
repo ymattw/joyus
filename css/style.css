@@ -109,11 +109,14 @@ pre.highlight {
   font-size: 90%;
 }
 
-.pagination .newer-post {
-  float: left;
+#edit-this-post a {
+  color: #002b36;
 }
 
-.pagination .older-post {
+.pagination #newer-post {
+}
+
+.pagination #older-post {
   float: right;
 }
 

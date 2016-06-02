@@ -29,11 +29,16 @@ layout: default
 
 <div class="pagination">
   {% if page.next %}
-    <a class="newer-post" href="{{ page.next.url }}" title="{{ page.next.title }}">&larr; Newer </a>
+    <a id="newer-post" href="{{ page.next.url }}" title="{{ page.next.title }}">&larr; Newer </a>
   {% endif %}
+
   {% if page.previous %}
-    <a class="older-post" href="{{ page.previous.url }}" title="{{ page.previous.title }}">Older &rarr; </a>
+    <a id="older-post" href="{{ page.previous.url }}" title="{{ page.previous.title }}">Older &rarr; </a>
   {% endif %}
+</div>
+
+<div id="edit-this-post"> <!-- will be hidden with css color -->
+  <a rel="nofollow" href="https://github.com/ymattw/joyus/edit/gh-pages/{{ page.path }}">Edit this post</a>
 </div>
 
 {% include disqus-comments %}
