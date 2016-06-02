@@ -14,7 +14,7 @@ tags: [expect]
     set timeout 60
     spawn ssh smth
     interact {
-            timeout 30 { send " " }
+        timeout 30 { send " " }
     }
 
 再用一个 shell 脚本在 X Window 里面用 gnome 终端来启动 ssh 过程，先新建配置文件
@@ -22,6 +22,6 @@ tags: [expect]
 
     #!/bin/sh
     gnome-terminal --window-with-profile=smth --command sshsmth \
-            --geometry=80x50 &
+        --geometry=80x50 &
 
 Perfect!
