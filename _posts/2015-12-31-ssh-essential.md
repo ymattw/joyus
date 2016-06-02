@@ -22,5 +22,5 @@ Visit [ymattw.github.io/ssh-essential](http://ymattw.github.io/ssh-essential)
 to play.
 
 The source code is at
-[https://github.com/ymattw/ssh-essential](https://github.com/ymattw/ssh-essential),
+[ymattw/ssh-essential](https://github.com/ymattw/ssh-essential),
 feel free to distribute.
