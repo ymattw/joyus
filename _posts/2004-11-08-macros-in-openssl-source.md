@@ -4,7 +4,7 @@ title: Macros in openssl source code
 tags: [C, gcc]
 ---
 
-你看到代码中某个地方用了一个Marco，想找它的原型，你发现ctags帮不上忙，grep -r
+你看到代码中某个地方用了一个 Marco，想找它的原型，你发现 ctags 帮不上忙，grep -r
 也一无所获，想得通怎么回事吗？
 
 crypto/pem/pem.h
