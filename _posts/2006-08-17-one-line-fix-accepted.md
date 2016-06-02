@@ -21,7 +21,7 @@ tags: [opensource, ubuntu]
     * debian/Xsession:
         - specify "ls" path, fix gnome-session not starting due to some parsing
         issues for people using an ls="ls --color" alias to their profile,
-        thanks to Matthew Wang <dotway at gmaom> from tracking it and
+        thanks to Matthew Wang <dot******@gmail.com> from tracking it and
         suggesting the change (Ubuntu: #48876)
 
     ** Changed in: gdm (Ubuntu)
