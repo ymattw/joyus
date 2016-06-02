@@ -109,11 +109,11 @@ pre.highlight {
   font-size: 90%;
 }
 
-.pagination .newer {
+.pagination .newer-post {
   float: left;
 }
 
-.pagination .older {
+.pagination .older-post {
   float: right;
 }
 

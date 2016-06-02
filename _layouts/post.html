@@ -2,44 +2,38 @@
 layout: default
 ---
 
-<div class="row-fluid">
-  <div class="span12">
-
-    <div class="page-header">
-      <h2>{{ page.title }}</h2>
-    </div>
-
-    <div class="post-meta">
-      <span class="icon-user"></span>
-      <span><a href="{{ site.url }}">{{ site.author }}</a></span>
-
-      <span class="icon-time"></span>
-      <span>on {{ page.date | date: "%B %-d, %Y" }},</span>
-
-      {% unless page.tags == empty %}
-      tags:
-      <!-- page.tags is an Array -->
-      {% for tag in page.tags %}
-        <span class="icon-tag"></span>
-        <span><a href="{{ site.tags_path }}#{{ tag }}-ref">{{ tag }} </a></span>
-      {% endfor %}
-      {% endunless %}
-    </div>
-
-    <div class="post-content">
-      {{ content }}
-    </div>
-
-    <div class="pagination">
-      {% if page.next %}
-        <a class="newer" href="{{ page.next.url }}" title="{{ page.next.title }}">&larr; Newer </a>
-      {% endif %}
-      {% if page.previous %}
-        <a class="older" href="{{ page.previous.url }}" title="{{ page.previous.title }}">Older &rarr; </a>
-      {% endif %}
-    </div>
-
-    {% include disqus-comments %}
-
-  </div>
+<div class="page-header">
+  <h2>{{ page.title }}</h2>
 </div>
+
+<div class="post-meta">
+  <span class="icon-user"></span>
+  <span><a href="{{ site.url }}">{{ site.author }}</a></span>
+
+  <span class="icon-time"></span>
+  <span>on {{ page.date | date: "%B %-d, %Y" }},</span>
+
+  {% unless page.tags == empty %}
+  tags:
+  <!-- page.tags is an Array -->
+  {% for tag in page.tags %}
+    <span class="icon-tag"></span>
+    <span><a href="{{ site.tags_path }}#{{ tag }}-ref">{{ tag }} </a></span>
+  {% endfor %}
+  {% endunless %}
+</div>
+
+<div class="post-content">
+  {{ content }}
+</div>
+
+<div class="pagination">
+  {% if page.next %}
+    <a class="newer-post" href="{{ page.next.url }}" title="{{ page.next.title }}">&larr; Newer </a>
+  {% endif %}
+  {% if page.previous %}
+    <a class="older-post" href="{{ page.previous.url }}" title="{{ page.previous.title }}">Older &rarr; </a>
+  {% endif %}
+</div>
+
+{% include disqus-comments %}
