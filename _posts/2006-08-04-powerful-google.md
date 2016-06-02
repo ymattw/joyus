@@ -10,8 +10,8 @@ tags: []
 
 ### NIS
 
-这个自然是首当其冲的。`apt-get install portmap nis`，顺手把openssh-server 也装
-上，然后就是修改 /etc/nsswitch.conf，让 files 优先于 nis，然后把本机登陆的普通
+这个自然是首当其冲的。`apt-get install portmap nis`，顺手把 openssh-server 也装
+上，然后就是修改 `/etc/nsswitch.conf`，让 files 优先于 nis，然后把本机登陆的普通
 用户 uid 和 gid 改成自己 nis 账号一样的，这样在本机和网络上访问文件就畅通无阻了
 ，哈。这是最近才悟出的，以前早该这么改的，用本机账号登陆自然比 nis 账号快。
 
@@ -20,15 +20,15 @@ tags: []
 公司的 NIS 网络上，任何一台 Solaris 主机上访问 /net/host 时就自动在 /net 下建立
 host 子目录并将主机host 上的共享目录 mount 上，非常方便，Ubuntu 上可以有同样的
 功能。`apt-get install nfs-common autofs`，只装 autofs 时并不会自动安装
-nfs-common （没有建立依赖关系），但实际上 /etc/init.d/autofs 脚本依赖nfs-common
+nfs-common （没有建立依赖关系），但实际上 /etc/init.d/autofs 脚本依赖 nfs-common
 包的 showmount 命令，这是读那个脚本才发现的。装上这两个包之后，修改
 /etc/auto.master，把 `#/net /etc/auto.net` 这行的注释去掉，然后
 `/etc/init.d/autofs restart` 就 OK 了。
 
 ### mount --bind 的问题
 
-Linux 支持把一个目录树 mount 到另一个目录树，命令是 mount --bind /src/tree
-/dest/tree，这个早就知道，但今天想让它启动就 mount 上，需要写到 /etc/fstab，看
+Linux 支持把一个目录树 mount 到另一个目录树，命令是 `mount --bind /src/tree
+/dest/tree`，这个早就知道，但今天想让它启动就 mount 上，需要写到 /etc/fstab，看
 了 man page，没有提，按自己的想像试了一下还是不行，最后还是 google 搞定，写法是
 `/src/tree /dest/tree none bind`
 
@@ -50,7 +50,7 @@ Solaris 上链接串口的命令是 tip，Linux 上对应的
 动来 mount -F nfs ubuntu:/share /mnt 出错提示为 Not Owner，郁闷。又是一通
 google，找到
 <a href="http://www.filibeto.org/pipermail/solaris-users/2005-March/001258.html">这个讨论帖子</a>，
-原因是 Linux 的 NFSv4 支持还没有成熟，只能在 Solaris 上修改/etc/default/nfs，把
+原因是 Linux 的 NFSv4 支持还没有成熟，只能在 Solaris 上修改 /etc/default/nfs，把
 `NFS_CLIENT_VERSMAX` 设置为 3 来凑合用 :-(
 
 **Update on Mar 26, 2007**: 解决方案有了，rpc.nfsd 和 rpc.mountd 都有一个参数
