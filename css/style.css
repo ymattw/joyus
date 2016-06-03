@@ -54,6 +54,7 @@ pre {
 
 .console {
   font-family: Inconsolata, monospace;
+  font-size: 100%;
 }
 
 .console ul {
