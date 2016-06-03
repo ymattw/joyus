@@ -109,7 +109,8 @@ pre.highlight {
   font-size: 90%;
 }
 
-#edit-this-post a {
+#edit-this-page a {
+  /* hidden with the same background color */
   color: #002b36;
 }
 

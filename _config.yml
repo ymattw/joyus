@@ -14,6 +14,7 @@ redcarpet:
 #
 url: https://joyus.org
 enforce_ssl: joyus.org
+git_repo_url: https://github.com/ymattw/joyus
 title: "Unsorted Notes"
 author: Matthew Wang
 google_analytics_tracking_id: 'UA-1460037-1'
