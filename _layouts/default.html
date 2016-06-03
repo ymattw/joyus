@@ -26,6 +26,11 @@ layout: base
   </div>
   <footer>
     <p>&copy; {{ site.time | date: '%Y' }} {{ site.author }} | JOYUS.ORG</p>
+
+    <div id="edit-this-page"> <!-- will be hidden with css color -->
+      <a rel="nofollow" href="{{ site.git_repo_url }}/edit/gh-pages/{{ page.path }}">Edit this page</a>
+    </div>
+
   </footer>
 
 </div>
