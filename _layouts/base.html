@@ -12,6 +12,12 @@
 
     <!-- rss feed -->
     <link href="{{ site.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+    <script type="text/javascript">
+      if (("{{ site.enforce_ssl }}" == window.location.host) && (window.location.protocol == "http:")) {
+          window.location.href = window.location.href.replace(/^http:/, 'https:')
+      }
+    </script>
   </head>
 
   <body>
