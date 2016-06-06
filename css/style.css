@@ -100,7 +100,8 @@ pre.highlight {
   padding: 0 2px 0 2px;
 }
 
-.navbar #nav-menu .active {
+.navbar #nav-menu .active a {
+  color: #073642;
   background-color: #d48321;
 }
 
