@@ -4,7 +4,7 @@ title: VNC back to work over ssh tunnels
 tags: [ssh, tunnel, vnc]
 ---
 
-**Warning**: this post might be not accurate anymore, refer to you system
+**Warning**: this post might not be accurate anymore, refer to your system
 man pages and online document to fix by yourself.
 
 How it works:
