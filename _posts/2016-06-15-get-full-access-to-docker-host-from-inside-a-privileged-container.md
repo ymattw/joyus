@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Get full access to docker host from inside a privileged container
-tags: []
+tags: [docker]
 ---
 
 You can get full access to docker host from inside a container if it's running
