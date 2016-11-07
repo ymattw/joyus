@@ -4,7 +4,7 @@
 //
 function FindProxyForURL(url, host)
 {
-    var hosts = new Array(
+    var hosts = [
         // Twitter
         "*twitter*",
         "vine.co",
@@ -21,6 +21,8 @@ function FindProxyForURL(url, host)
         "g.co",
         "g.cn",
         "*appspot.com",
+        "*golang.org",
+        "*godoc.org",
 
         // Facebook
         "*instgram.com",
@@ -30,22 +32,18 @@ function FindProxyForURL(url, host)
         "j.mp",
         "*akamaihd.com",
 
-        // Amazon
+        // Others
         "*amazonaws.com",
         "gist.github.com",
         "*slack*",
-        "*golang.org",
-        "*godoc.org",
-
-        // Others
         "*ytimg.com",
         "*mzstatic.com",
         "*apple-dns*,
         "bit.ly",
         "*dropbox.com"
-    );
+    ];
 
-    var proxy = "SOCKS localhost:1080";
+    var proxy = "SOCKS5 localhost:1080";
 
     for (var i = 0; i < hosts.length; i++) {
         if (shExpMatch(host, hosts[i])) {
