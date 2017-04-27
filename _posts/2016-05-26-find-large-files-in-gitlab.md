@@ -32,8 +32,8 @@ shows me:
 ...
 ```
 
-That's it - the 4th column is the file size in byte.  Pipe to `awk 'int($4)
-> 1024*1024*10'` would give me all file that has size greater than 10MB.
+That's it - the 4th column is the file size in byte.  Pipe to `awk 'int($4) > 1024*1024*10'`
+will give me all file that has size greater than 10MB.
 
 A complete script is like below:
 
@@ -67,4 +67,4 @@ Guess what I found after running the script over our GitLab repos?
 ...  108.7M  thirdparty.tar.gz
 ```
 
-You newbies!!
+See what they have checked in? Newbies!!
