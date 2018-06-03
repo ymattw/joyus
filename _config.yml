@@ -16,7 +16,7 @@ url: https://joyus.org
 enforce_ssl: joyus.org
 git_repo_url: https://github.com/ymattw/joyus
 title: Unsorted Notes
-author: Matthew Wang
+author: Matt Wang
 google_analytics_tracking_id: UA-1460037-1
 disqus_short_name: joyusorg
 tags_path: /tags.html
