@@ -1,7 +1,7 @@
 {
     "log": {
-        "access": "/opt/v2ray/access.log",
-        "error": "/opt/v2ray/error.log",
+        "access": "/opt/v2/access.log",
+        "error": "/opt/v2/error.log",
         "loglevel": "warning"
     },
     "inbounds": [
