@@ -150,3 +150,8 @@ footer {
   font-size: 0.8rem;
   text-align: center;
 }
+
+/* Override for Disqus comment box */
+.textarea-outer-wrapper .textarea-wrapper {
+  background-color: #ddd !important;
+}
