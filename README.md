@@ -1,9 +1,9 @@
 # Pages for [joyus.org](https://joyus.org)
 
-## Setup development environment
+## Test locally
 
-Run `bundle install` to install dependencies (depends on ruby).
+```
+make
+```
 
-## Preview locally
-
-`make build` to build, `make serve` to serve on port 4000 for preview.
+Then access http://localhost:4000 to preview.

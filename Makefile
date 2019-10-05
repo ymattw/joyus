@@ -1,7 +1,10 @@
 .PHONY: build serve server clean new
 
 serve server:
-	jekyll serve
+	docker run -it --rm \
+		-v "$(shell pwd)":/usr/src/app \
+		-p "4000:4000" \
+		starefossen/github-pages
 
 build:
 	jekyll build --safe
