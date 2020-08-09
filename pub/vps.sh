@@ -1,5 +1,7 @@
 #!/bin/bash
 # Script to setup account on Ubuntu VPS. Verified versions:16.04, 18.04, 19.04.
+#
+# Example usage: curl -L joyus.org/pub/vps.sh | bash -s ymattw
 
 set -o errexit
 set -o nounset

@@ -1,6 +1,8 @@
 #!/bin/bash
 # Script to setup SS on Ubuntu VPS. Verified versions:16.04, 18.04, 19.04.
 # Requires sudo and docker environment (see vps.sh).
+#
+# Example usage: curl -L joyus.org/pub/ss.sh | bash -s ymattw
 
 set -o errexit
 set -o nounset
