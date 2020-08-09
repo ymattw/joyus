@@ -11,6 +11,7 @@ GITHUB_ID="${1?:'Usage: $0 <github username>'}"
 
 PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 
+V2_IMAGE="v2fly/v2fly-core:v4.27.0"
 V2_DIR=/opt/v2
 V2_PORT=8964
 V2_UUID=$(cat /proc/sys/kernel/random/uuid)
@@ -36,7 +37,7 @@ function setup_v2
     curl -SsLk https://ymattw.github.io/joyus/pub/v2.json | \
         sudo tee $config
 
-    sudo sed -i "" \
+    sudo sed -i"" \
         -e "s/__PORT__/$V2_PORT/" \
         -e "s/__UUID__/$V2_UUID/" \
         $config
@@ -44,10 +45,9 @@ function setup_v2
 
     echo docker run --rm -d \
         --name v2 \
-        -u $(id -ur $GITHUB_ID) \
         -v $V2_DIR:$V2_DIR \
         -p $V2_PORT:$V2_PORT \
-        v2ray/official \
+        $V2_IMAGE \
         /usr/bin/v2ray/v2ray -config=$config \
         | sudo tee $V2_DIR/start.sh
 
@@ -60,7 +60,7 @@ function setup_v2
 
 function setup_crontab
 {
-    ! sudo crontab -lu $GITHUB_ID | grep -wq "$SS_DIR/start.sh" || return 0
+    ! sudo crontab -lu $GITHUB_ID | grep -wq "$V2_DIR/start.sh" || return 0
     echo "Installing crontab entry"
 
     {
