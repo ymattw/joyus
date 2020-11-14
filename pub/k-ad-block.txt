@@ -77,5 +77,11 @@ DOMAIN-SUFFIX,traffic.uusee.com,REJECT
 DOMAIN-SUFFIX,trafficjunky.net,REJECT
 DOMAIN-SUFFIX,union.6.cn,REJECT
 
+# Apple OCSP
+# "Your Computer Isn't Yours"
+# https://sneak.berlin/20201112/your-computer-isnt-yours/
+DOMAIN-SUFFIX,ocsp.apple.com,REJECT
+DOMAIN-SUFFIX,ocsp.g.aaplimg.com,REJECT
+
 # ==== final ====
 FINAL,DIRECT
