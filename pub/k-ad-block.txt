@@ -1,5 +1,5 @@
 # kitsunebi config
-# Ref: https:#raw.githubusercontent.com/eycorsican/rule-sets/master/kitsunebi_lite_default.conf
+# Ref: https://raw.githubusercontent.com/eycorsican/rule-sets/master/kitsunebi_lite_default.conf
 
 # rules should be grouped by their types (DOMAIN/IP/USER-AGENT)
 # and targets (PROXY/DIRECT/REJECT) for better performance.
@@ -82,6 +82,18 @@ DOMAIN-SUFFIX,union.6.cn,REJECT
 # https://sneak.berlin/20201112/your-computer-isnt-yours/
 DOMAIN-SUFFIX,ocsp.apple.com,REJECT
 DOMAIN-SUFFIX,ocsp.g.aaplimg.com,REJECT
+
+# Ref: https://v.firebog.net/hosts/AdguardDNS.txt
+DOMAIN-SUFFIX,sdk.e.qq.com,REJECT
+DOMAIN-SUFFIX,gdt.qq.com,REJECT
+DOMAIN-SUFFIX,beacon.qq.com,REJECT
+DOMAIN-SUFFIX,umeng.com,REJECT
+DOMAIN-SUFFIX,dm.toutiao.com,REJECT
+DOMAIN-SUFFIX,mcs.snssdk.com,REJECT
+DOMAIN-SUFFIX,log-hl.snssdk.com,REJECT
+DOMAIN-SUFFIX,ib.snssdk.com,REJECT
+DOMAIN-SUFFIX,xlog.snssdk.com,REJECT
+DOMAIN-SUFFIX,log.snssdk.com,REJECT
 
 # ==== final ====
 FINAL,DIRECT
