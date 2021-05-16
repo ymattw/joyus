@@ -2,8 +2,4 @@
 
 ## Test locally
 
-```
-make
-```
-
-Then access http://localhost:4000 to preview.
+Just type `make`, then access http://localhost:4000 to preview.
