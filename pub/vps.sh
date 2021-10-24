@@ -19,12 +19,15 @@ function main
     setup_ssh
     setup_sshd
     setup_sudo
+    setup_firewall
+    disable_rpcbind
 }
 
 function install_pkgs
 {
     sudo apt-get update -y
     [[ -x /bin/zsh ]] || sudo apt-get install -y zsh
+    [[ -x /usr/bin/netstat ]] || sudo apt-get install -y net-tools
     [[ -x /usr/bin/docker ]] || sudo apt-get install -y docker.io
 }
 
@@ -101,6 +104,19 @@ function setup_sudo
     echo "$GITHUB_ID ALL=(ALL:ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/$GITHUB_ID
     sudo chmod 440 /etc/sudoers.d/$GITHUB_ID
     sudo -l -U $GITHUB_ID
+}
+
+function setup_firewall
+{
+    sudo iptables -F
+    sudo ufw disable
+    echo "Firewall disabled, remember to reconfigure firewall rules when needed!"
+}
+
+function disable_rpcbind
+{
+    sudo systemctl stop rpcbind rpcbind.socket
+    sudo systemctl disable rpcbind rpcbind.socket
 }
 
 main "$@"
