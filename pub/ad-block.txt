@@ -1,4 +1,4 @@
-# kitsunebi config
+# Shadowrocket / kitsunebi config for AD blocking
 # Ref: https://raw.githubusercontent.com/eycorsican/rule-sets/master/kitsunebi_lite_default.conf
 
 # rules should be grouped by their types (DOMAIN/IP/USER-AGENT)
@@ -22,6 +22,7 @@ DOMAIN-SUFFIX,atanx.alicdn.com,REJECT
 DOMAIN-SUFFIX,atm.youku.com,REJECT
 DOMAIN-SUFFIX,c.yes.youku.com,REJECT
 DOMAIN-SUFFIX,cc.xtgreat.com,REJECT
+DOMAIN-SUFFIX,chelaile.net.cn,REJECT
 DOMAIN-SUFFIX,cm.zhiziyun.com,REJECT
 DOMAIN-SUFFIX,cupid.iqiyi.com,REJECT
 DOMAIN-SUFFIX,cupid.qiyi.com,REJECT
@@ -31,9 +32,13 @@ DOMAIN-SUFFIX,de.as.pptv.com,REJECT
 DOMAIN-SUFFIX,doubleclick.net,REJECT
 DOMAIN-SUFFIX,doublepimp.com,REJECT
 DOMAIN-SUFFIX,g.uusee.com,REJECT
+DOMAIN-SUFFIX,gdtimg.com,REJECT
+DOMAIN-SUFFIX,getui.com,REJECT
+DOMAIN-SUFFIX,gifshow.com,REJECT
 DOMAIN-SUFFIX,gug.ku6cdn.com,REJECT
 DOMAIN-SUFFIX,ifacelog.iqiyi.com,REJECT
 DOMAIN-SUFFIX,iwstat.tudou.com,REJECT
+DOMAIN-SUFFIX,kuaishou.com,REJECT
 DOMAIN-SUFFIX,kwflvcdn.000dn.com,REJECT
 DOMAIN-SUFFIX,lives.l.qq.com,REJECT
 DOMAIN-SUFFIX,logger.baofeng.com,REJECT
@@ -50,17 +55,21 @@ DOMAIN-SUFFIX,p-log.ykimg.com,REJECT
 DOMAIN-SUFFIX,p.l.qq.com,REJECT
 DOMAIN-SUFFIX,p.l.ykimg.com,REJECT
 DOMAIN-SUFFIX,p.l.youku.com,REJECT
+DOMAIN-SUFFIX,pangolin-sdk-toutiao.com,REJECT
+DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
 DOMAIN-SUFFIX,pics.taobaocdn.com,REJECT
 DOMAIN-SUFFIX,pingma.qq.com,REJECT
 DOMAIN-SUFFIX,pop.uusee.com,REJECT
 DOMAIN-SUFFIX,pq.stat.ku6.com,REJECT
 DOMAIN-SUFFIX,pv.sohu.com,REJECT
+DOMAIN-SUFFIX,qzs.gdtimg.com,REJECT
 DOMAIN-SUFFIX,r.l.youku.com,REJECT
 DOMAIN-SUFFIX,rcd.iqiyi.com,REJECT
 DOMAIN-SUFFIX,rtb.behe.com,REJECT
 DOMAIN-SUFFIX,show.re.taobao.com,REJECT
 DOMAIN-SUFFIX,shrek.6.cn,REJECT
 DOMAIN-SUFFIX,simba.6.cn,REJECT
+DOMAIN-SUFFIX,snssdk.com,REJECT
 DOMAIN-SUFFIX,st.vq.ku6.cn,REJECT
 DOMAIN-SUFFIX,stat.tudou.com,REJECT
 DOMAIN-SUFFIX,stat.youku.com,REJECT
@@ -75,19 +84,21 @@ DOMAIN-SUFFIX,tns.simba.taobao.com,REJECT
 DOMAIN-SUFFIX,tracking.lenzmx.com,REJECT
 DOMAIN-SUFFIX,traffic.uusee.com,REJECT
 DOMAIN-SUFFIX,trafficjunky.net,REJECT
+DOMAIN-SUFFIX,ulogs.umengcloud.com,REJECT
 DOMAIN-SUFFIX,union.6.cn,REJECT
 
+
 # Ref: https://v.firebog.net/hosts/AdguardDNS.txt
-DOMAIN-SUFFIX,sdk.e.qq.com,REJECT
-DOMAIN-SUFFIX,gdt.qq.com,REJECT
 DOMAIN-SUFFIX,beacon.qq.com,REJECT
-DOMAIN-SUFFIX,umeng.com,REJECT
 DOMAIN-SUFFIX,dm.toutiao.com,REJECT
-DOMAIN-SUFFIX,mcs.snssdk.com,REJECT
-DOMAIN-SUFFIX,log-hl.snssdk.com,REJECT
+DOMAIN-SUFFIX,gdt.qq.com,REJECT
 DOMAIN-SUFFIX,ib.snssdk.com,REJECT
-DOMAIN-SUFFIX,xlog.snssdk.com,REJECT
+DOMAIN-SUFFIX,log-hl.snssdk.com,REJECT
 DOMAIN-SUFFIX,log.snssdk.com,REJECT
+DOMAIN-SUFFIX,mcs.snssdk.com,REJECT
+DOMAIN-SUFFIX,sdk.e.qq.com,REJECT
+DOMAIN-SUFFIX,umeng.com,REJECT
+DOMAIN-SUFFIX,xlog.snssdk.com,REJECT
 
 # ==== final ====
 FINAL,DIRECT
