@@ -22,7 +22,6 @@ DOMAIN-SUFFIX,atanx.alicdn.com,REJECT
 DOMAIN-SUFFIX,atm.youku.com,REJECT
 DOMAIN-SUFFIX,c.yes.youku.com,REJECT
 DOMAIN-SUFFIX,cc.xtgreat.com,REJECT
-DOMAIN-SUFFIX,chelaile.net.cn,REJECT
 DOMAIN-SUFFIX,cm.zhiziyun.com,REJECT
 DOMAIN-SUFFIX,cupid.iqiyi.com,REJECT
 DOMAIN-SUFFIX,cupid.qiyi.com,REJECT
