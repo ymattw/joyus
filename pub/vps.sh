@@ -108,9 +108,9 @@ function setup_sudo
 
 function setup_firewall
 {
-    iptables -P INPUT ACCEPT
-    iptables -P FORWARD ACCEPT
-    iptables -P OUTPUT ACCEPT
+    sudo iptables -P INPUT ACCEPT
+    sudo iptables -P FORWARD ACCEPT
+    sudo iptables -P OUTPUT ACCEPT
     sudo iptables -F
     sudo ufw disable
     echo "Firewall disabled, remember to reconfigure firewall rules when needed!"
