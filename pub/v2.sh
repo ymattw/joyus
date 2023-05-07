@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script to setup v2ray on Ubuntu VPS. Verified versions:16.04, 18.04, 19.04.
+# Script to setup v2ray on Ubuntu VPS. Verified versions: 22.04.1 LTS.
 # Requires sudo and docker environment (see vps.sh).
 #
 # Example usage: curl -L joyus.org/pub/v2.sh | bash -s ymattw
@@ -11,7 +11,7 @@ GITHUB_ID="${1?:'Usage: $0 <github username>'}"
 
 PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 
-V2_IMAGE="v2fly/v2fly-core:v4.27.0"
+V2_IMAGE="v2fly/v2fly-core:v4.45.2"
 V2_DIR=/opt/v2
 V2_PORT=8964
 V2_UUID=$(cat /proc/sys/kernel/random/uuid)
@@ -48,9 +48,10 @@ function setup_v2
         -v $V2_DIR:$V2_DIR \
         -p $V2_PORT:$V2_PORT \
         $V2_IMAGE \
-        /usr/bin/v2ray/v2ray -config=$config \
+        /usr/bin/v2ray -config=$config \
         | sudo tee $V2_DIR/start.sh
 
+    sudo touch $V2_DIR/{access,error}.log
     sudo chown -R $GITHUB_ID $V2_DIR
     sudo chmod +x $V2_DIR/start.sh
 

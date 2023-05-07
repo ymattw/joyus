@@ -11,9 +11,7 @@
             "settings": {
                 "clients": [
                     {
-                        "id": "__UUID__",
-                        "level": 1,
-                        "alterId": 64
+                        "id": "__UUID__"
                     }
                 ]
             }
