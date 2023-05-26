@@ -86,11 +86,11 @@ function setup_public_key
 
 function setup_sshd
 {
-    ! grep -q '^Port 2200$' /etc/ssh/sshd_config || return 0
+    ! grep -q '^Port 60022$' /etc/ssh/sshd_config || return 0
 
-    echo "Updating ssh listening port from 22 to 2200 / disable root login"
+    echo "Updating ssh listening port from 22 to 60022 / disable root login"
     sudo sed -i'' -r \
-        -e 's/^#?\s*Port 22$/Port 2200/' \
+        -e 's/^#?\s*Port 22$/Port 60022/' \
         -e 's/^#?\s*PermitRootLogin yes/PermitRootLogin no/' \
         /etc/ssh/sshd_config
     sudo service ssh restart
@@ -108,12 +108,8 @@ function setup_sudo
 
 function setup_firewall
 {
-    sudo iptables -P INPUT ACCEPT
-    sudo iptables -P FORWARD ACCEPT
-    sudo iptables -P OUTPUT ACCEPT
-    sudo iptables -F
-    sudo ufw disable
-    echo "Firewall disabled, remember to reconfigure firewall rules when needed!"
+    sudo ufw allow proto tcp from any to any port 22,80,443,60000:65535
+    sudo ufw reload
 }
 
 function disable_rpcbind
