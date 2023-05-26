@@ -41,8 +41,15 @@ function create_user
 
 function modify_user
 {
+    local home=$(eval echo ~${GITHUB_ID})
+    local rc="https://raw.githubusercontent.com/ymattw/profiles/master/zsh/zshrc"
+
     sudo chsh -s /bin/zsh $GITHUB_ID
     sudo usermod -a -G docker $GITHUB_ID
+    [[ -f $home/.zshrc ]] || {
+        curl -SsLk $rc | sudo tee $home/.zshrc > /dev/null
+        sudo chown $GITHUB_ID $home/.zshrc
+    }
 }
 
 function setup_ssh
