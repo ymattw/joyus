@@ -24,7 +24,6 @@ function main
 function install_pkgs
 {
     sudo apt update -y
-    [[ -x /bin/zsh ]] || sudo apt install -y zsh
     [[ -x /usr/bin/netstat ]] || sudo apt install -y net-tools
     [[ -x /usr/bin/docker ]] || sudo apt install -y docker.io
 }
