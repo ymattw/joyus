@@ -47,7 +47,7 @@ function modify_user
     sudo chsh -s /bin/zsh $GITHUB_ID
     sudo usermod -a -G docker $GITHUB_ID
     [[ -f $home/.zshrc ]] || {
-        curl -SsLk $rc | sudo tee $home/.zshrc > /dev/null
+        curl -SsL $rc | sudo tee $home/.zshrc > /dev/null
         sudo chown $GITHUB_ID $home/.zshrc
     }
 }
@@ -70,7 +70,7 @@ function setup_ssh
 
     tmpf=$(mktemp)
     trap "rm -f $tmpf" RETURN
-    curl -SsLk https://github.com/${GITHUB_ID}.keys > $tmpf
+    curl -SsL https://github.com/${GITHUB_ID}.keys > $tmpf
 
     while read -r key_line; do
         setup_public_key $key_file "$key_line"
