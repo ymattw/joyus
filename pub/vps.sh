@@ -1,6 +1,5 @@
 #!/bin/bash
-# Script to setup account on Ubuntu VPS. Verified versions:16.04, 18.04, 19.04,
-# 20.04.
+# Script to setup account on Ubuntu VPS. Verified versions: 22.04.
 #
 # Example usage: curl -L joyus.org/pub/vps.sh | bash -s ymattw
 
@@ -20,15 +19,14 @@ function main
     setup_sshd
     setup_sudo
     setup_firewall
-    disable_rpcbind
 }
 
 function install_pkgs
 {
-    sudo apt-get update -y
-    [[ -x /bin/zsh ]] || sudo apt-get install -y zsh
-    [[ -x /usr/bin/netstat ]] || sudo apt-get install -y net-tools
-    [[ -x /usr/bin/docker ]] || sudo apt-get install -y docker.io
+    sudo apt update -y
+    [[ -x /bin/zsh ]] || sudo apt install -y zsh
+    [[ -x /usr/bin/netstat ]] || sudo apt install -y net-tools
+    [[ -x /usr/bin/docker ]] || sudo apt install -y docker.io
 }
 
 function create_user
@@ -110,12 +108,6 @@ function setup_firewall
 {
     sudo ufw allow proto tcp from any to any port 22,80,443,60000:65535
     sudo ufw reload
-}
-
-function disable_rpcbind
-{
-    sudo systemctl stop rpcbind rpcbind.socket
-    sudo systemctl disable rpcbind rpcbind.socket
 }
 
 main "$@"
