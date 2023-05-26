@@ -12,6 +12,7 @@ GITHUB_ID="${1?:'Usage: $0 <github username>'}"
 PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 
 V2_IMAGE="v2fly/v2fly-core:v4.45.2"
+V2_JSON="https://raw.githubusercontent.com/ymattw/joyus/gh-pages/pub/v2.json"
 V2_DIR=/opt/v2
 V2_PORT=60066
 V2_UUID=$(cat /proc/sys/kernel/random/uuid)
@@ -34,8 +35,7 @@ function setup_v2
     echo "Installing v2ray server"
 
     sudo mkdir -p $V2_DIR
-    curl -SsLk https://ymattw.github.io/joyus/pub/v2.json | \
-        sudo tee $config
+    curl -SsL $V2_JSON | sudo tee $config
 
     sudo sed -i"" \
         -e "s/__PORT__/$V2_PORT/" \

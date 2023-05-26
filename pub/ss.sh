@@ -11,6 +11,7 @@ GITHUB_ID="${1?:'Usage: $0 <github username>'}"
 
 PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 
+SS_JSON="https://raw.githubusercontent.com/ymattw/joyus/gh-pages/pub/ss.json"
 SS_DIR=/opt/ss
 SS_PORT=60055
 SS_PASS=$(tr -dc 'A-Za-z0-9_' < /dev/urandom | head -c 16)
@@ -33,8 +34,7 @@ function setup_ss
     echo "Installing shadowsocks server"
 
     sudo mkdir -p $SS_DIR
-    curl -SsLk https://ymattw.github.io/joyus/pub/ss.json | \
-        sudo tee $config
+    curl -SsL $SS_JSON | sudo tee $config
 
     sudo sed -i"" \
         -e "s/__PORT__/$SS_PORT/" \
