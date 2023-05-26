@@ -106,7 +106,9 @@ function setup_sudo
 
 function setup_firewall
 {
+    sudo ufw default allow routed
     sudo ufw allow proto tcp from any to any port 22,80,443,60000:65535
+    sudo ufw --force enable
     sudo ufw reload
 }
 
