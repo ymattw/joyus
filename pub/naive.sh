@@ -62,7 +62,7 @@ function setup_crontab
 
     {
         sudo crontab -lu $GITHUB_ID
-        echo "*/2 * * * * pgrep -f '$NAIVE_DIR/caddy run' >/dev/null 2>&1 || $NAIVE_DIR/start.sh"
+        echo "*/2 * * * * pgrep -f ^$NAIVE_DIR/caddy >/dev/null 2>&1 || $NAIVE_DIR/start.sh"
     } | sudo -u $GITHUB_ID crontab
 
     sudo crontab -lu $GITHUB_ID
