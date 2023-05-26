@@ -13,7 +13,7 @@ PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 
 V2_IMAGE="v2fly/v2fly-core:v4.45.2"
 V2_DIR=/opt/v2
-V2_PORT=8964
+V2_PORT=60066
 V2_UUID=$(cat /proc/sys/kernel/random/uuid)
 
 function main

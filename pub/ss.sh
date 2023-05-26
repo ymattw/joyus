@@ -12,7 +12,7 @@ GITHUB_ID="${1?:'Usage: $0 <github username>'}"
 PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 
 SS_DIR=/opt/ss
-SS_PORT=10800
+SS_PORT=60055
 SS_PASS=$(tr -dc 'A-Za-z0-9_' < /dev/urandom | head -c 16)
 
 function main
