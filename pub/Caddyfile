@@ -2,9 +2,6 @@
 	order forward_proxy before file_server
 }
 
-# NOTE! Automatically applied cert and key will be stored in
-# ~/.local/share/caddy, back them up when needed!
-#
 :443, __DOMAIN__ {
 	tls __USER__@users.noreply.github.com
 	forward_proxy {
