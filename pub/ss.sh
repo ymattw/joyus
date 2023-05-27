@@ -19,7 +19,6 @@ SS_PASS=$(tr -dc 'A-Za-z0-9_' < /dev/urandom | head -c 16)
 function main
 {
     setup_ss
-    setup_crontab
 }
 
 function setup_ss
@@ -42,8 +41,9 @@ function setup_ss
         $config
     sudo chmod 600 $config
 
-    echo docker run --rm -d \
-        --name ss \
+    echo -e "#!/bin/sh\n" \
+        docker run --restart=unless-stopped -d \
+        --name=ss \
         -u $(id -ur $GITHUB_ID) \
         -v $SS_DIR:$SS_DIR \
         -p $SS_PORT:$SS_PORT \
@@ -56,19 +56,6 @@ function setup_ss
 
     echo "Starting shadowsocks server with generated password '$SS_PASS'"
     sudo -H -u $GITHUB_ID $SS_DIR/start.sh
-}
-
-function setup_crontab
-{
-    ! sudo crontab -lu $GITHUB_ID | grep -wq "$SS_DIR/start.sh" || return 0
-    echo "Installing crontab entry"
-
-    {
-        sudo crontab -lu $GITHUB_ID
-        echo "*/2 * * * * docker ps --format='{{.Names}}' | grep -wq ss >/dev/null 2>&1 || $SS_DIR/start.sh"
-    } | sudo -u $GITHUB_ID crontab
-
-    sudo crontab -lu $GITHUB_ID
 }
 
 main "$@"

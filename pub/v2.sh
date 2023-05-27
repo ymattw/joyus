@@ -20,7 +20,6 @@ V2_UUID=$(cat /proc/sys/kernel/random/uuid)
 function main
 {
     setup_v2
-    setup_crontab
 }
 
 function setup_v2
@@ -43,8 +42,9 @@ function setup_v2
         $config
     sudo chmod 600 $config
 
-    echo docker run --rm -d \
-        --name v2 \
+    echo -e "#!/bin/sh\n" \
+        docker run --restart=unless-stopped -d \
+        --name=v2 \
         -v $V2_DIR:$V2_DIR \
         -p $V2_PORT:$V2_PORT \
         $V2_IMAGE \
@@ -57,19 +57,6 @@ function setup_v2
 
     echo "Starting v2ray server with uuid '$V2_UUID'"
     sudo -H -u $GITHUB_ID $V2_DIR/start.sh
-}
-
-function setup_crontab
-{
-    ! sudo crontab -lu $GITHUB_ID | grep -wq "$V2_DIR/start.sh" || return 0
-    echo "Installing crontab entry"
-
-    {
-        sudo crontab -lu $GITHUB_ID
-        echo "*/2 * * * * docker ps --format='{{.Names}}' | grep -wq v2 >/dev/null 2>&1 || $V2_DIR/start.sh"
-    } | sudo -u $GITHUB_ID crontab
-
-    sudo crontab -lu $GITHUB_ID
 }
 
 main "$@"
