@@ -46,19 +46,26 @@ function _find_cert_dir
     echo $crt_dir
 }
 
+function _get_obfs
+{
+    local obfs
+
+    # Read current obfs
+    obfs=$(grep -w obfs $CONFIG 2>/dev/null | fmt -1 | tail -1 | xargs echo)
+    if [[ -z $obfs ]] || [[ $obfs == __OBFS__ ]]; then
+        obfs=$(tr -dc 'A-Za-z0-9' < /dev/urandom | head -c 24)
+    fi
+    echo "$obfs"
+}
+
 function setup_config
 {
-    if [[ -f $CONFIG ]] && ! sudo grep -wq __OBFS__ $CONFIG; then
-        echo "$CONFIG already configured, skipping creation"
-        return 0
-    fi
+    local obfs crt_dir
 
-    local crt_dir
+    obfs=$(_get_obfs)
     crt_dir=$(_find_cert_dir)
 
-    local obfs=$(tr -dc 'A-Za-z0-9' < /dev/urandom | head -c 24)
     echo "Writing $CONFIG with obfs '$obfs'"
-
     sudo mkdir -p $DIR
     curl -SsL $JSON | sudo tee $CONFIG
     sudo sed -i"" \
