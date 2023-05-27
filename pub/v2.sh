@@ -11,11 +11,12 @@ GITHUB_ID="${1?:'Usage: $0 <github username>'}"
 
 PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 
-V2_IMAGE="v2fly/v2fly-core:v4.45.2"
-V2_JSON="https://raw.githubusercontent.com/ymattw/joyus/gh-pages/pub/v2.json"
-V2_DIR=/opt/v2
-V2_PORT=60066
-V2_CONFIG=$V2_DIR/config.json
+IMAGE="v2fly/v2fly-core:v4.45.2"
+JSON="https://raw.githubusercontent.com/ymattw/joyus/gh-pages/pub/v2.json"
+DIR="/opt/v2"
+PORT="60066"
+CONFIG="$DIR/config.json"
+CONTAINER="v2"
 
 function main
 {
@@ -26,49 +27,49 @@ function main
 
 function setup_v2_config
 {
-    if [[ -f $V2_CONFIG ]] && ! sudo grep -wq __UUID__ $V2_CONFIG; then
-        echo "V2ray already configured in $V2_DIR, skipping writing $V2_CONFIG"
+    if [[ -f $CONFIG ]] && ! sudo grep -wq __UUID__ $CONFIG; then
+        echo "V2ray already configured in $DIR, skipping writing $CONFIG"
         return 0
     fi
 
     local uuid=$(cat /proc/sys/kernel/random/uuid)
-    echo "Writing $V2_CONFIG with uuid '$uuid'"
+    echo "Writing $CONFIG with uuid '$uuid'"
 
-    sudo mkdir -p $V2_DIR
-    curl -SsL $V2_JSON | sudo tee $V2_CONFIG
+    sudo mkdir -p $DIR
+    curl -SsL $JSON | sudo tee $CONFIG
     sudo sed -i"" \
-        -e "s/__PORT__/$V2_PORT/" \
+        -e "s/__PORT__/$PORT/" \
         -e "s/__UUID__/$uuid/" \
-        $V2_CONFIG
-    sudo chmod 600 $V2_CONFIG
+        $CONFIG
+    sudo chmod 600 $CONFIG
 }
 
 function setup_v2_start
 {
     echo -e "#!/bin/sh\ndocker" \
         run --restart=unless-stopped -d \
-        --name=v2 \
-        -v $V2_DIR:$V2_DIR \
-        -p $V2_PORT:$V2_PORT \
-        $V2_IMAGE \
-        /usr/bin/v2ray -config=$V2_CONFIG \
-        | sudo tee $V2_DIR/start.sh
+        --name=$CONTAINER \
+        -v $DIR:$DIR \
+        -p $PORT:$PORT \
+        $IMAGE \
+        /usr/bin/v2ray -config=$CONFIG \
+        | sudo tee $DIR/start.sh
 
-    sudo touch $V2_DIR/{access,error}.log
-    sudo chown -R $GITHUB_ID $V2_DIR
-    sudo chmod +x $V2_DIR/start.sh
+    sudo touch $DIR/{access,error}.log
+    sudo chown -R $GITHUB_ID $DIR
+    sudo chmod +x $DIR/start.sh
 }
 
 function start_v2
 {
-    if docker ps --format='{{.Names}}' | grep -wq v2 >&/dev/null; then
-        echo "Docker container 'v2' is already up, removing..."
-        docker stop v2
-        docker rm v2
+    if docker ps --format='{{.Names}}' | grep -wq $CONTAINER >&/dev/null; then
+        echo "Docker container '$CONTAINER' is already up, removing..."
+        docker stop $CONTAINER
+        docker rm $CONTAINER
     fi
 
     echo "Starting v2ray server"
-    sudo -H -u $GITHUB_ID $V2_DIR/start.sh
+    sudo -H -u $GITHUB_ID $DIR/start.sh
 }
 
 main "$@"
