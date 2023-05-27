@@ -12,7 +12,7 @@ RULE-SET, https://joyus.org/pub/apple.txt, DIRECT
 RULE-SET, https://joyus.org/pub/cn.txt, DIRECT
 
 GEOIP, CN, DIRECT
-FINAL, PROXY
+FINAL, PROXY, force-remote-dns
 
 [URL Rewrite]
 ^http://(www.)?google.cn https://www.google.com 302
