@@ -25,16 +25,22 @@ function main
     start
 }
 
+function _get_uuid
+{
+    # Read current uuid
+    local uuid=$(grep -Eo '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}' $CONFIG 2>/dev/null)
+    if [[ -z $uuid ]] || [[ $uuid == __UUID__ ]]; then
+        uuid=$(cat /proc/sys/kernel/random/uuid)
+    fi
+    echo "$uuid"
+}
+
 function setup_config
 {
-    if [[ -f $CONFIG ]] && ! sudo grep -wq __UUID__ $CONFIG; then
-        echo "$CONFIG already configured, skipping creation"
-        return 0
-    fi
+    local uuid
 
-    local uuid=$(cat /proc/sys/kernel/random/uuid)
+    uuid=$(_get_uuid)
     echo "Writing $CONFIG with uuid '$uuid'"
-
     sudo mkdir -p $DIR
     curl -SsL $JSON | sudo tee $CONFIG
     sudo sed -i"" \
