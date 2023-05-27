@@ -20,15 +20,15 @@ CONTAINER="v2"
 
 function main
 {
-    setup_v2_config
-    setup_v2_start
-    start_v2
+    setup_config
+    setup_start
+    start
 }
 
-function setup_v2_config
+function setup_config
 {
     if [[ -f $CONFIG ]] && ! sudo grep -wq __UUID__ $CONFIG; then
-        echo "V2ray already configured in $DIR, skipping writing $CONFIG"
+        echo "$CONFIG already configured, skipping creation"
         return 0
     fi
 
@@ -44,7 +44,7 @@ function setup_v2_config
     sudo chmod 600 $CONFIG
 }
 
-function setup_v2_start
+function setup_start
 {
     echo -e "#!/bin/sh\ndocker" \
         run --restart=unless-stopped -d \
@@ -60,7 +60,7 @@ function setup_v2_start
     sudo chmod +x $DIR/start.sh
 }
 
-function start_v2
+function start
 {
     if docker ps --format='{{.Names}}' | grep -wq $CONTAINER >&/dev/null; then
         echo "Docker container '$CONTAINER' is already up, removing..."
@@ -68,7 +68,7 @@ function start_v2
         docker rm $CONTAINER
     fi
 
-    echo "Starting v2ray server"
+    echo "Starting container '$CONTAINER'"
     sudo -H -u $GITHUB_ID $DIR/start.sh
 }
 
