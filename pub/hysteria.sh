@@ -51,7 +51,7 @@ function _get_obfs
     local obfs
 
     # Read current obfs
-    obfs=$(grep -w obfs $CONFIG 2>/dev/null | fmt -1 | tail -1 | xargs echo)
+    obfs=$(grep -w obfs $CONFIG 2>/dev/null | cut -d '"' -f4)
     if [[ -z $obfs ]] || [[ $obfs == __OBFS__ ]]; then
         obfs=$(tr -dc 'A-Za-z0-9' < /dev/urandom | head -c 24)
     fi
