@@ -45,7 +45,8 @@ function setup_naive
         $config
     sudo chmod 600 $config
 
-    echo $NAIVE_DIR/caddy start | sudo tee $NAIVE_DIR/start.sh
+    # NOTE! caddy always loads Caddyfile from current dir.
+    echo -e "#/bin/sh\ncd $NAIVE_DIR && ./caddy start" | sudo tee $NAIVE_DIR/start.sh
     sudo chmod +x $NAIVE_DIR/start.sh
 
     sudo chown -R $GITHUB_ID $NAIVE_DIR
@@ -62,8 +63,7 @@ function setup_crontab
 
     {
         sudo crontab -lu $GITHUB_ID
-        # XXX: process will start but does not listen! (???)
-        echo "# */2 * * * * pgrep -f ^$NAIVE_DIR/caddy >/dev/null 2>&1 || $NAIVE_DIR/start.sh 2>&1 | logger -t caddy"
+        echo "*/2 * * * * pgrep -f ^$NAIVE_DIR/caddy >/dev/null 2>&1 || $NAIVE_DIR/start.sh 2>&1 | logger -it caddy"
     } | sudo -u $GITHUB_ID crontab
 
     sudo crontab -lu $GITHUB_ID
