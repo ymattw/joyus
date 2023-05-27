@@ -12,58 +12,75 @@ DOMAIN="${2?:'Usage: $0 <github username> <domain name>'}"
 
 PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 
-NAIVE_DIR=/opt/naive
-NAIVE_XZ="https://github.com/klzgrad/forwardproxy/releases/download/v2.6.4-caddy2-naive/caddy-forwardproxy-naive.tar.xz"
-NAIVE_PASS=$(tr -dc 'A-Za-z0-9_' < /dev/urandom | head -c 16)
+DIR="/opt/naive"
+IMAGE="https://github.com/klzgrad/forwardproxy/releases/download/v2.6.4-caddy2-naive/caddy-forwardproxy-naive.tar.xz"
 CADDYFILE="https://raw.githubusercontent.com/ymattw/joyus/gh-pages/pub/Caddyfile"
+CONFIG="$DIR/Caddyfile"
 
 function main
 {
-    setup_naive
+    setup_config
+    setup_start
+    start
     setup_crontab
 }
 
-function setup_naive
+function _get_pass
 {
-    local config=$NAIVE_DIR/Caddyfile
+    # Read current pass
+    local pass=$(grep -w basic_auth $CONFIG 2>/dev/null | fmt -1 | tail -1 | xargs echo)
 
-    if [[ -f $config ]] && ! sudo grep -qE "__DOMAIN__" $config; then
-        echo "NaiveProxy already configured in $NAIVE_DIR, skipping"
-        return 0
+    if [[ -z $pass ]] || [[ $pass == __PASS__ ]]; then
+        pass=$(tr -dc 'A-Za-z0-9' < /dev/urandom | head -c 24)
     fi
+    echo "$pass"
+}
 
-    sudo mkdir -p $NAIVE_DIR/html
-    echo 'Hello world!' | sudo tee $NAIVE_DIR/html/index.html
+function setup_config
+{
+    local pass
 
-    curl -SsL "$NAIVE_XZ" | sudo tar -C $NAIVE_DIR --strip-components=1 -xJf -
-    curl -SsL $CADDYFILE | sudo tee $config
+    pass=$(_get_pass)
+
+    echo "Writing $CONFIG with password '$pass'"
+    sudo mkdir -p $DIR/html
+    echo 'Hello world!' | sudo tee $DIR/html/index.html
+
+    curl -SsL "$IMAGE" | sudo tar -C $DIR --strip-components=1 -xJf -
+    curl -SsL $CADDYFILE | sudo tee $CONFIG
     sudo sed -i"" \
         -e "s/__DOMAIN__/$DOMAIN/" \
         -e "s/__USER__/$GITHUB_ID/" \
-        -e "s/__PASS__/$NAIVE_PASS/" \
-        -e "s|__FILE_SERVER_PATH__|$NAIVE_DIR/html|" \
-        $config
-    sudo chmod 600 $config
+        -e "s/__PASS__/$pass/" \
+        -e "s|__FILE_SERVER_PATH__|$DIR/html|" \
+        $CONFIG
+    sudo chmod 600 $CONFIG
+}
 
+function setup_start
+{
     # NOTE! caddy always loads Caddyfile from current dir.
-    echo -e "#/bin/sh\ncd $NAIVE_DIR && ./caddy start" | sudo tee $NAIVE_DIR/start.sh
-    sudo chmod +x $NAIVE_DIR/start.sh
+    echo -e "#/bin/sh\ncd $DIR && ./caddy start" | sudo tee $DIR/start.sh
+    sudo chmod +x $DIR/start.sh
 
-    sudo chown -R $GITHUB_ID $NAIVE_DIR
-    sudo setcap cap_net_bind_service=+ep $NAIVE_DIR/caddy
+    sudo chown -R $GITHUB_ID $DIR
+    sudo setcap cap_net_bind_service=+ep $DIR/caddy
+}
 
-    echo "Starting NaiveProxy with generated password '$NAIVE_PASS'"
-    sudo -H -u $GITHUB_ID $NAIVE_DIR/start.sh
+function start
+{
+    echo "Starting NaiveProxy"
+    sudo pkill caddy || true
+    sudo -H -u $GITHUB_ID $DIR/start.sh
 }
 
 function setup_crontab
 {
-    ! sudo crontab -lu $GITHUB_ID | grep -wq "$NAIVE_DIR/start.sh" || return 0
     echo "Installing crontab entry"
 
     {
-        sudo crontab -lu $GITHUB_ID
-        echo "*/2 * * * * pgrep -f ^$NAIVE_DIR/caddy >/dev/null 2>&1 || $NAIVE_DIR/start.sh 2>&1 | logger -it caddy"
+        sudo crontab -lu $GITHUB_ID | grep -vw "$DIR/start.sh" || true
+        echo "*/2 * * * * pgrep -f ^$DIR/caddy >/dev/null 2>&1 || $DIR/start.sh 2>&1 | logger -it caddy"
     } | sudo -u $GITHUB_ID crontab
 
     sudo crontab -lu $GITHUB_ID
