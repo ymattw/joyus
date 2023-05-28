@@ -1,7 +1,7 @@
 {
     "log": {
-        "access": "/opt/v2/access.log",
-        "error": "/opt/v2/error.log",
+        "access": "__DIR__/access.log",
+        "error": "__DIR__/error.log",
         "loglevel": "warning"
     },
     "inbounds": [

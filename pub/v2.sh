@@ -44,6 +44,7 @@ function setup_config
     sudo mkdir -p $DIR
     curl -SsL $JSON | sudo tee $CONFIG
     sudo sed -i"" \
+        -e "s|__DIR__|$DIR|g" \
         -e "s/__PORT__/$PORT/" \
         -e "s/__UUID__/$uuid/" \
         $CONFIG
