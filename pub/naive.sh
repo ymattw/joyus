@@ -28,7 +28,7 @@ function main
 function _get_pass
 {
     # Read current pass
-    local pass=$(grep -w basic_auth $CONFIG 2>/dev/null | fmt -1 | tail -1 | xargs echo)
+    local pass=$(grep -w basic_auth $CONFIG 2>/dev/null | awk '{print $3}')
 
     if [[ -z $pass ]] || [[ $pass == __PASS__ ]]; then
         pass=$(tr -dc 'A-Za-z0-9' < /dev/urandom | head -c 24)
