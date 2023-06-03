@@ -14,7 +14,6 @@ PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 
 DIR="/opt/naive"
 IMAGE="https://github.com/klzgrad/forwardproxy/releases/download/v2.6.4-caddy2-naive/caddy-forwardproxy-naive.tar.xz"
-CADDYFILE="https://raw.githubusercontent.com/ymattw/joyus/gh-pages/pub/Caddyfile"
 CONFIG="$DIR/Caddyfile"
 
 function main
@@ -42,18 +41,31 @@ function setup_config
 
     pass=$(_get_pass)
 
-    echo "Writing $CONFIG with password '$pass'"
     sudo mkdir -p $DIR/html
     echo 'Hello world!' | sudo tee $DIR/html/index.html
 
     curl -SsL "$IMAGE" | sudo tar -C $DIR --strip-components=1 -xJf -
-    curl -SsL $CADDYFILE | sudo tee $CONFIG
-    sudo sed -i"" \
-        -e "s/__DOMAIN__/$DOMAIN/" \
-        -e "s/__USER__/$GITHUB_ID/" \
-        -e "s/__PASS__/$pass/" \
-        -e "s|__FILE_SERVER_PATH__|$DIR/html|" \
-        $CONFIG
+
+    echo "Writing $CONFIG with password '$pass'"
+    cat << EOT | sed -r 's/^ {4}//g' | sudo tee $CONFIG
+    {
+        order forward_proxy before file_server
+    }
+
+    :443, $DOMAIN {
+        tls $GITHUB_ID@users.noreply.github.com
+        forward_proxy {
+            basic_auth $GITHUB_ID $pass
+            hide_ip
+            hide_via
+            probe_resistance
+        }
+        file_server {
+            root $DIR/html
+        }
+    }
+EOT
+
     sudo chmod 600 $CONFIG
 }
 
