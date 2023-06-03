@@ -12,7 +12,6 @@ GITHUB_ID="${1?:'Usage: $0 <github username>'}"
 PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 
 IMAGE="v2fly/v2fly-core:v4.45.2"
-JSON="https://raw.githubusercontent.com/ymattw/joyus/gh-pages/pub/v2.json"
 DIR="/opt/v2"
 PORT="60066"
 CONFIG="$DIR/config.json"
@@ -39,15 +38,39 @@ function setup_config
 {
     local uuid
 
+    sudo mkdir -p $DIR
+
     uuid=$(_get_uuid)
     echo "Writing $CONFIG with uuid '$uuid'"
-    sudo mkdir -p $DIR
-    curl -SsL $JSON | sudo tee $CONFIG
-    sudo sed -i"" \
-        -e "s|__DIR__|$DIR|g" \
-        -e "s/__PORT__/$PORT/" \
-        -e "s/__UUID__/$uuid/" \
-        $CONFIG
+    cat << EOT | sed -r 's/^ {4}//g' | sudo tee $CONFIG
+    {
+        "log": {
+            "access": "$DIR/access.log",
+            "error": "$DIR/error.log",
+            "loglevel": "warning"
+        },
+        "inbounds": [
+            {
+                "port": $PORT,
+                "protocol": "vmess",
+                "settings": {
+                    "clients": [
+                        {
+                            "id": "$uuid"
+                        }
+                    ]
+                }
+            }
+        ],
+        "outbounds": [
+            {
+                "protocol": "freedom",
+                "settings": {}
+            }
+        ]
+    }
+EOT
+
     sudo chmod 600 $CONFIG
 }
 
