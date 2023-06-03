@@ -13,7 +13,6 @@ DOMAIN="${2?:'Usage: $0 <github username> <domain name>'}"
 PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 
 IMAGE="tobyxdd/hysteria:v1.3.4"
-JSON="https://raw.githubusercontent.com/ymattw/joyus/gh-pages/pub/hysteria.json"
 DIR="/opt/hysteria"
 PORT="60077"
 CONFIG="$DIR/config.json"
@@ -65,15 +64,18 @@ function setup_config
     obfs=$(_get_obfs)
     crt_dir=$(_find_cert_dir)
 
-    echo "Writing $CONFIG with obfs '$obfs'"
     sudo mkdir -p $DIR
-    curl -SsL $JSON | sudo tee $CONFIG
-    sudo sed -i"" \
-        -e "s/__PORT__/$PORT/" \
-        -e "s/__DOMAIN__/$DOMAIN/g" \
-        -e "s/__OBFS__/$obfs/" \
-        -e "s|__MOUNT__|$crt_dir|g" \
-        $CONFIG
+
+    echo "Writing $CONFIG with obfs '$obfs'"
+    cat << EOT | sed -r 's/^ {4}//g' | sudo tee $CONFIG
+    {
+        "listen": ":$PORT",
+        "cert": "$crt_dir/$DOMAIN.crt",
+        "key": "$crt_dir/$DOMAIN.key",
+        "obfs": "$obfs"
+    }
+EOT
+
     sudo chmod 600 $CONFIG
 }
 

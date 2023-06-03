@@ -1,6 +1,0 @@
-{
-  "listen": ":__PORT__",
-  "cert": "__MOUNT__/__DOMAIN__.crt",
-  "key": "__MOUNT__/__DOMAIN__.key",
-  "obfs": "__OBFS__"
-}
