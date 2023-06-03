@@ -42,7 +42,7 @@ function setup_config
     pass=$(_get_pass)
 
     sudo mkdir -p $DIR/html
-    echo 'Hello world!' | sudo tee $DIR/html/index.html
+    sudo cp /dev/null $DIR/html/index.html
 
     curl -SsL "$IMAGE" | sudo tar -C $DIR --strip-components=1 -xJf -
 
