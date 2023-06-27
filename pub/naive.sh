@@ -92,7 +92,7 @@ function setup_crontab
 
     {
         sudo crontab -lu $GITHUB_ID | grep -vw "$DIR/start.sh" || true
-        echo "*/2 * * * * pgrep -f ^$DIR/caddy >/dev/null 2>&1 || $DIR/start.sh 2>&1 | logger -it caddy"
+        echo "*/2 * * * * pgrep -f ^./caddy >/dev/null 2>&1 || $DIR/start.sh 2>&1 | logger -it caddy"
     } | sudo -u $GITHUB_ID crontab
 
     sudo crontab -lu $GITHUB_ID
