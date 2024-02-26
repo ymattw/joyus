@@ -1,7 +1,5 @@
 User-agent: Google
 Allow: /*.html
-Allow: /assets
-Allow: /pub
 Allow: /archive
 Allow: /tags
 Disallow: /
