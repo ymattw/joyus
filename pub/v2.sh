@@ -11,7 +11,7 @@ GITHUB_ID="${1?:'Usage: $0 <github username>'}"
 
 PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 
-IMAGE="v2fly/v2fly-core:v4.45.2"
+IMAGE="v2fly/v2fly-core:v5.14.1"
 DIR="/opt/v2"
 PORT="60066"
 CONFIG="$DIR/config.json"
@@ -82,7 +82,7 @@ function setup_start
         -v $DIR:$DIR \
         -p $PORT:$PORT \
         $IMAGE \
-        /usr/bin/v2ray -config=$CONFIG \
+        run -c $CONFIG \
         | sudo tee $DIR/start.sh
 
     sudo touch $DIR/{access,error}.log
