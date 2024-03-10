@@ -13,7 +13,7 @@ DOMAIN="${2?:'Usage: $0 <github username> <domain name>'}"
 PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 
 DIR="/opt/naive"
-IMAGE="https://github.com/klzgrad/forwardproxy/releases/download/v2.6.4-caddy2-naive/caddy-forwardproxy-naive.tar.xz"
+IMAGE="https://github.com/klzgrad/forwardproxy/releases/download/v2.7.5-caddy2-naive/caddy-forwardproxy-naive.tar.xz"
 CONFIG="$DIR/Caddyfile"
 
 function main
@@ -42,7 +42,7 @@ function setup_config
     pass=$(_get_pass)
 
     sudo mkdir -p $DIR/html
-    sudo cp /dev/null $DIR/html/index.html
+    echo "Hello world!" | sudo tee $DIR/html/index.html > /dev/null
 
     curl -SsL "$IMAGE" | sudo tar -C $DIR --strip-components=1 -xJf -
 
