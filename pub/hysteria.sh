@@ -12,10 +12,10 @@ DOMAIN="${2?:'Usage: $0 <github username> <domain name>'}"
 
 PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 
-IMAGE="tobyxdd/hysteria:v1.3.4"
+IMAGE="tobyxdd/hysteria:v2.3.0"
 DIR="/opt/hysteria"
 PORT="60077"
-CONFIG="$DIR/config.json"
+CONFIG="$DIR/config.yaml"
 CONTAINER="hysteria"
 
 function main
@@ -45,35 +45,44 @@ function _find_cert_dir
     echo $crt_dir
 }
 
-function _get_obfs
+function _get_passwd
 {
-    local obfs
+    local passwd
 
-    # Read current obfs
-    obfs=$(grep -w obfs $CONFIG 2>/dev/null | cut -d '"' -f4)
-    if [[ -z $obfs ]] || [[ $obfs == __OBFS__ ]]; then
-        obfs=$(tr -dc 'A-Za-z0-9' < /dev/urandom | head -c 24)
+    # Read current passwd
+    passwd=$(grep "password:" $CONFIG 2>/dev/null | awk '{print $2}')
+    if [[ -z $passwd ]]; then
+        passwd=$(tr -dc 'A-Za-z0-9' < /dev/urandom | head -c 24)
     fi
-    echo "$obfs"
+    echo "$passwd"
 }
 
 function setup_config
 {
-    local obfs crt_dir
+    local passwd crt_dir
 
-    obfs=$(_get_obfs)
+    passwd=$(_get_passwd)
     crt_dir=$(_find_cert_dir)
 
     sudo mkdir -p $DIR
 
-    echo "Writing $CONFIG with obfs '$obfs'"
+    echo "Writing $CONFIG with password '$passwd'"
     cat << EOT | sed -r 's/^ {4}//g' | sudo tee $CONFIG
-    {
-        "listen": ":$PORT",
-        "cert": "$crt_dir/$DOMAIN.crt",
-        "key": "$crt_dir/$DOMAIN.key",
-        "obfs": "$obfs"
-    }
+    listen: :$PORT
+
+    auth:
+      type: password
+      password: $passwd
+
+    tls:
+      cert: $crt_dir/$DOMAIN.crt
+      key: $crt_dir/$DOMAIN.key
+
+    masquerade:
+      type: proxy
+      proxy:
+        url: https://www.bing.com
+        rewriteHost: true
 EOT
 
     sudo chmod 600 $CONFIG
