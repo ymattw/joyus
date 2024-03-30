@@ -1,72 +1,11 @@
----
-layout: page
-title: home
-header: Just unsorted notes
-group: navigation
-order: 1
----
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="refresh" content="0; URL='https://last.re'" />
+</head>
 
-<div class="console">
-
-<q>A loss may turn out to be a gain</q> (<a href="https://en.wikipedia.org/wiki/Huainanzi">Huainanzi</a>).
-Be happy, don't get angry.
-
-<p>
-  Last login: {{ site.time | date: '%a %b %-d, %Y %T %z' }} from
-  <a href="https://pages.github.com/">pages.github.com</a>
-</p>
-
-<p>
-  <div class="prompt">% uptime</div>
-  <script type="text/javascript">
-    var domain_reg_date = new Date("Fri, 2 Jun 2006 07:21:44 -0700");
-    var current_date = new Date();
-    var uptime = (current_date.getTime() - domain_reg_date.getTime()) / 1000;
-    var uptime_days = (uptime / 86400).toFixed();
-    var uptime_hours = ((uptime % 86400) / 3600).toFixed();
-    var uptime_minutes = ((uptime % 3600) / 60).toFixed();
-    uptime_minutes = ('0' + uptime_minutes).slice(-2); // left pad
-    document.write("up " + uptime_days + " days, ");
-    document.write(uptime_hours + ":" + uptime_minutes + ", ");
-  </script>
-  <noscript>up 3648 days, 18:47, </noscript>
-  1 user, load average: 0.01, 0.02, 0.05
-</p>
-
-<p>
-  <div class="prompt">% ls /</div>
-  {% assign site_pages = site.pages | where:"group","navigation" %}
-  {% for p in site_pages %}
-    <span class="dir"><a href="{{ p.url }}">{{ p.title }}</a></span>
-  {% endfor %}
-</p>
-
-<p>
-  <div class="prompt">% whoami</div>
-  {{ site.author }}
-</p>
-
-<p>
-  <div class="prompt">% cat about-me.txt</div>
-  <ul>
-    <li>A busy father of a naughty boy, living in Zürich, Switzerland
-    <li>Software engineer, Unix guy, Vim user, Mac user, open source enthusiast
-    <li>Loves simplicity and believes in the <a href="https://en.wikipedia.org/wiki/KISS_principle">KISS principle</a>
-    <li>Hates most in the world is unproductive meetings
-    <li>Amateur <a href="http://en.wikipedia.org/wiki/Weiqi">Weiqi</a> fan at entry level, just enough to enjoy it
-  </ul>
-
-  You may find more useful stuff from my
-  <a href="https://github.com/ymattw/">GitHub</a> repositories.
-</p>
-
-<p>
-  <div class="prompt">% cat contact.txt</div>
-  <p>I believe you geeks know where to find my email address :-).</p>
-</p>
-
-<p>
-  <div class="prompt">% cat copying.txt</div>
-</p>
-
-</div>
+<body>
+  <p>Redirecting to <a href="https://last.re">last.re</a></p>
+</body>
+</html>
